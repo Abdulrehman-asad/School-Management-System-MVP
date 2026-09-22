@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Management — Shaheen Model Girls High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none"><path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/></g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-students" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.3 4.5 2.5 4.5 5.3"/></g>
+    <g id="icon-teachers" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5Z"/><path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></g>
+    <g id="icon-classes" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M9 9v9"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-fees" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 1.7-2.5 2-2.5.6-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-notice" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5Z"/><path d="M8 9h8M8 13h8M8 17h5"/></g>
+    <g id="icon-reports" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-plus" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></g>
+    <g id="icon-edit" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16.5 3.5 4 4L8 20l-5 1 1-5Z"/></g>
+    <g id="icon-trash" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></g>
+    <g id="icon-backup" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Admin Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+
+    <div class="nav-section-label">Academics</div>
+    <a href="students.html"><svg viewBox="0 0 24 24"><use href="#icon-students"/></svg>Students</a>
+    <a href="teachers.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-teachers"/></svg>Teachers</a>
+    <a href="classes.html"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg>Classes &amp; Sections</a>
+    <a href="timetable.html"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>Timetable</a>
+
+    <div class="nav-section-label">Operations</div>
+    <a href="attendance.html"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg>Attendance</a>
+    <a href="exams.html"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg>Exams &amp; Results</a>
+    <a href="fees.html"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg>Fee Management</a>
+    <a href="notices.html"><svg viewBox="0 0 24 24"><use href="#icon-notice"/></svg>Notice Board</a>
+    <a href="reports.html"><svg viewBox="0 0 24 24"><use href="#icon-reports"/></svg>Reports</a>
+
+    <div class="nav-section-label">System</div>
+    <a href="backup.html"><svg viewBox="0 0 24 24"><use href="#icon-backup"/></svg>Backup &amp; Restore</a>
+    <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-settings"/></svg>Settings<span class="soon-badge">soon</span></a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0</div>
+</aside>
+
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" id="teacherSearch" placeholder="Search by name...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name">Admin</div><div class="role">admin</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-1">
+      <div>
+        <h1 class="page-title">Teacher Management</h1>
+        <p class="page-subtitle">Add, edit, and manage teacher records.</p>
+      </div>
+      <button class="btn-dash-primary d-inline-flex align-items-center gap-2" id="openAddModalBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16"><use href="#icon-plus"/></svg>Add Teacher
+      </button>
+    </div>
+
+    <div class="dash-card">
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <select class="form-select form-select-sm w-auto" id="statusFilter">
+          <option value="">All Statuses</option>
+          <option value="active">Active</option>
+          <option value="on_leave">On Leave</option>
+          <option value="resigned">Resigned</option>
+          <option value="terminated">Terminated</option>
+        </select>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="dash-table">
+          <thead><tr><th>Employee Code</th><th>Name</th><th>Email</th><th>Qualification</th><th>Status</th><th></th></tr></thead>
+          <tbody id="teachersBody"><tr><td colspan="6" class="text-center text-muted py-4">Loading...</td></tr></tbody>
+        </table>
+      </div>
+      <div class="pagination-row" id="teachersPagination"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal fade" id="teacherModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content dash-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="teacherModalTitle">Add Teacher</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <form id="teacherForm">
+        <div class="modal-body">
+          <input type="hidden" id="teacherId">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label small fw-semibold">Full Name</label><input type="text" class="form-control" id="fullName" required></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Username</label><input type="text" class="form-control" id="username" required></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Email</label><input type="email" class="form-control" id="email" required></div>
+            <div class="col-md-6" id="passwordField"><label class="form-label small fw-semibold">Password</label><input type="password" class="form-control" id="password" minlength="8"></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Employee Code</label><input type="text" class="form-control" id="employeeCode"></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Phone</label><input type="text" class="form-control" id="phone"></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Qualification</label><input type="text" class="form-control" id="qualification"></div>
+            <div class="col-md-6"><label class="form-label small fw-semibold">Specialization</label><input type="text" class="form-control" id="specialization"></div>
+            <!-- Assigned Class -->
+          <div class="col-md-6">
+        <label class="form-label small fw-semibold">
+        Assigned Class
+        </label>
+
+       <select class="form-select" id="teacherClass">
+        <option value="">Select Class</option>
+       </select>
+       </div>
+
+      <!-- Assigned Section -->
+      <div class="col-md-6">
+       <label class="form-label small fw-semibold">
+        Assigned Section
+       </label>
+
+       <select class="form-select" id="teacherSection">
+       <option value="">Select Section</option>
+       </select>
+       </div>
+       <!-- Assigned Subject -->
+       <div class="col-md-6">
+        <label class="form-label small fw-semibold">
+           Assigned Subject
+        </label>
+
+         <select class="form-select" id="teacherSubject">
+          <option value="">Select Subject</option>
+         </select>
+        </div>
+            <div class="col-md-6" id="statusField" style="display:none;">
+              <label class="form-label small fw-semibold">Status</label>
+              <select class="form-select" id="statusSelect">
+                <option value="active">Active</option><option value="on_leave">On Leave</option>
+                <option value="resigned">Resigned</option><option value="terminated">Terminated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn-dash-primary" id="teacherSubmitBtn">Save Teacher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content dash-modal">
+      <div class="modal-header"><h5 class="modal-title">Delete Teacher</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <div class="modal-body"><p>Delete <strong id="deleteTeacherName"></strong>? This cannot be undone.</p></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-custom-dash" id="dashToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+      ? "http://localhost:8000"
+      : "";
+
+  let teachersCache = [];
+  let deleteTargetId = null;
+
+  const teacherModal = new bootstrap.Modal(
+    document.getElementById("teacherModal")
+  );
+
+  const deleteModal = new bootstrap.Modal(
+    document.getElementById("deleteModal")
+  );
+
+  const teacherClassSelect =
+    document.getElementById("teacherClass");
+
+  const teacherSectionSelect =
+    document.getElementById("teacherSection");
+
+  const teacherSubjectSelect =
+    document.getElementById("teacherSubject");
+
+
+  /* ============================================================
+     AUTH / DASHBOARD INITIALIZATION
+  ============================================================ */
+
+  if (
+    Session.bootstrap({
+      requireRole: ["admin", "super_admin"]
+    })
+  ) {
+    DashboardShell.init({
+      apiBase: API_BASE
+    });
+
+    loadTeachers();
+  }
+
+
+  /* ============================================================
+     TOAST
+  ============================================================ */
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById("dashToast");
+
+    toast.textContent = message;
+
+    toast.classList.toggle(
+      "error",
+      isError
+    );
+
+    toast.classList.add("show");
+
+    clearTimeout(showToast._t);
+
+    showToast._t = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3500);
+  }
+
+
+  /* ============================================================
+     LOAD TEACHERS
+  ============================================================ */
+
+  async function loadTeachers() {
+
+    const tbody =
+      document.getElementById("teachersBody");
+
+    try {
+
+      const res =
+        await Session.authFetch(
+          `${API_BASE}/api/teachers?limit=1000`
+        );
+
+      if (!res.ok) {
+
+        throw new Error(
+          DashboardShell.errorMessage(
+            await res.json(),
+            "Could not load teachers."
+          )
+        );
+      }
+
+      teachersCache =
+        await res.json();
+
+    } catch (e) {
+
+      console.error(
+        "LOAD TEACHERS ERROR:",
+        e
+      );
+
+      tbody.innerHTML =
+        '<tr>' +
+        '<td colspan="6" class="text-center text-danger py-4">' +
+        'Could not load teachers.' +
+        '</td>' +
+        '</tr>';
+
+      return;
+    }
+
+    renderTable();
+  }
+
+
+  /* ============================================================
+     RENDER TEACHER TABLE
+  ============================================================ */
+
+  function renderTable() {
+
+    const q =
+      document
+        .getElementById("teacherSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const statusQ =
+      document
+        .getElementById("statusFilter")
+        .value;
+
+    const filtered =
+      teachersCache.filter((t) => {
+
+        const matchesSearch =
+          !q ||
+          (t.full_name || "")
+            .toLowerCase()
+            .includes(q) ||
+
+          (t.email || "")
+            .toLowerCase()
+            .includes(q);
+
+        const matchesStatus =
+          !statusQ ||
+          t.status === statusQ;
+
+        return (
+          matchesSearch &&
+          matchesStatus
+        );
+      });
+
+
+    const tbody =
+      document.getElementById(
+        "teachersBody"
+      );
+
+    const paginationEl =
+      document.getElementById(
+        "teachersPagination"
+      );
+
+
+    if (!filtered.length) {
+
+      tbody.innerHTML =
+        '<tr>' +
+        '<td colspan="6" class="text-center text-muted py-4">' +
+        'No teachers match your filters.' +
+        '</td>' +
+        '</tr>';
+
+      paginationEl.innerHTML = "";
+
+      return;
+    }
+
+
+    DashboardShell.Paginator(
+      filtered,
+      8,
+
+      (pageRows) => {
+
+        tbody.innerHTML =
+          pageRows
+            .map(
+              (t) => `
+
+              <tr>
+
+                <td>
+                  ${t.employee_code || "—"}
+                </td>
+
+                <td>
+                  ${DashboardShell.escapeHtml(
+                    t.full_name
+                  )}
+                </td>
+
+                <td>
+                  ${t.email || "—"}
+                </td>
+
+                <td>
+                  ${t.qualification || "—"}
+                </td>
+
+                <td>
+                  <span
+                    class="status-pill ${
+                      t.status === "active"
+                        ? "active"
+                        : "unpaid"
+                    }"
+                  >
+                    ${t.status}
+                  </span>
+                </td>
+
+                <td class="text-end">
+
+                  <button
+                    class="icon-btn"
+                    style="width:32px;height:32px;"
+                    onclick="openEditModal(${t.teacher_id})"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="15"
+                      height="15"
+                    >
+                      <use href="#icon-edit"/>
+                    </svg>
+                  </button>
+
+                  <button
+                    class="icon-btn"
+                    style="width:32px;height:32px;"
+                    onclick="openDeleteModal(
+                      ${t.teacher_id},
+                      '${DashboardShell.escapeHtml(
+                        t.full_name
+                      )}'
+                    )"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="15"
+                      height="15"
+                    >
+                      <use href="#icon-trash"/>
+                    </svg>
+                  </button>
+
+                </td>
+
+              </tr>
+
+            `
+            )
+            .join("");
+      },
+
+      paginationEl
+    );
+  }
+
+
+  /* ============================================================
+     SEARCH / FILTER
+  ============================================================ */
+
+  document
+    .getElementById("teacherSearch")
+    .addEventListener(
+      "input",
+      renderTable
+    );
+
+  document
+    .getElementById("statusFilter")
+    .addEventListener(
+      "change",
+      renderTable
+    );
+
+
+  /* ============================================================
+     OPEN ADD TEACHER MODAL
+  ============================================================ */
+
+  document
+    .getElementById("openAddModalBtn")
+    .addEventListener(
+      "click",
+      async () => {
+
+        document
+          .getElementById("teacherForm")
+          .reset();
+
+        document
+          .getElementById("teacherId")
+          .value = "";
+
+        document
+          .getElementById("teacherModalTitle")
+          .textContent = "Add Teacher";
+
+
+        document
+          .getElementById("password")
+          .required = true;
+
+        document
+          .getElementById("passwordField")
+          .style.display = "block";
+
+        document
+          .getElementById("statusField")
+          .style.display = "none";
+
+        document
+          .getElementById("username")
+          .disabled = false;
+
+
+        teacherClassSelect.innerHTML =
+          '<option value="">Select Class</option>';
+
+        teacherSectionSelect.innerHTML =
+          '<option value="">Select Section</option>';
+
+        teacherSubjectSelect.innerHTML =
+          '<option value="">Select Subject</option>';
+
+        teacherSectionSelect.disabled = true;
+
+        teacherSubjectSelect.disabled = true;
+
+
+        await loadTeacherClasses();
+
+        teacherModal.show();
+      }
+    );
+
+
+  /* ============================================================
+     OPEN EDIT TEACHER MODAL
+  ============================================================ */
+
+  window.openEditModal =
+    async function (teacherId) {
+
+      const t =
+        teachersCache.find(
+          (x) =>
+            x.teacher_id === teacherId
+        );
+
+      if (!t) return;
+
+
+      document
+        .getElementById("teacherForm")
+        .reset();
+
+
+      document
+        .getElementById("teacherId")
+        .value =
+        t.teacher_id;
+
+
+      document
+        .getElementById("teacherModalTitle")
+        .textContent =
+        `Edit ${t.full_name}`;
+
+
+      document
+        .getElementById("fullName")
+        .value =
+        t.full_name;
+
+
+      document
+        .getElementById("username")
+        .value =
+        t.username;
+
+
+      document
+        .getElementById("username")
+        .disabled = true;
+
+
+      document
+        .getElementById("email")
+        .value =
+        t.email || "";
+
+
+      document
+        .getElementById("employeeCode")
+        .value =
+        t.employee_code || "";
+
+
+      document
+        .getElementById("phone")
+        .value =
+        t.phone || "";
+
+
+      document
+        .getElementById("qualification")
+        .value =
+        t.qualification || "";
+
+
+      document
+        .getElementById("specialization")
+        .value =
+        t.specialization || "";
+
+
+      document
+        .getElementById("statusSelect")
+        .value =
+        t.status;
+
+
+      document
+        .getElementById("password")
+        .required = false;
+
+
+      document
+        .getElementById("passwordField")
+        .style.display = "none";
+
+
+      document
+        .getElementById("statusField")
+        .style.display = "block";
+
+
+      teacherSectionSelect.disabled = true;
+      teacherSubjectSelect.disabled = true;
+
+
+      /*
+        پہلے existing assignments load کریں
+      */
+
+      let existingAssignment = null;
+
+      try {
+
+        const assignmentRes =
+          await Session.authFetch(
+            `${API_BASE}/api/teachers/${teacherId}/assignments`
+          );
+
+
+        if (assignmentRes.ok) {
+
+          const assignments =
+            await assignmentRes.json();
+
+          console.log(
+            "Existing teacher assignments:",
+            assignments
+          );
+
+
+          if (
+            Array.isArray(assignments) &&
+            assignments.length > 0
+          ) {
+
+            /*
+              فی الحال پہلی assignment استعمال کر رہے ہیں۔
+            */
+
+            existingAssignment =
+              assignments[0];
+
+          }
+
+        } else {
+
+          console.warn(
+            "Could not load teacher assignments."
+          );
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Assignment loading error:",
+          error
+        );
+      }
+
+
+      /*
+        اگر assignment موجود ہے
+        تو اس کے section_id سے class معلوم کرنے کی کوشش کریں
+      */
+
+      let selectedClassId = null;
+      let selectedSectionId = null;
+      let selectedSubjectId = null;
+
+
+      if (existingAssignment) {
+
+        selectedSectionId =
+          existingAssignment.section_id;
+
+        selectedSubjectId =
+          existingAssignment.subject_id;
+
+
+        try {
+
+          const sectionRes =
+            await Session.authFetch(
+              `${API_BASE}/api/academic/sections`
+            );
+
+
+          if (sectionRes.ok) {
+
+            const allSections =
+              await sectionRes.json();
+
+
+            const selectedSection =
+              allSections.find(
+                (s) =>
+                  Number(s.section_id) ===
+                  Number(selectedSectionId)
+              );
+
+
+            if (selectedSection) {
+
+              selectedClassId =
+                selectedSection.class_id;
+
+            }
+
+          }
+
+        } catch (error) {
+
+          console.error(
+            "Could not determine class from section:",
+            error
+          );
+        }
+      }
+
+
+      /*
+        Classes + Sections + Subjects load کریں
+      */
+
+      await loadTeacherClasses(
+        selectedClassId,
+        selectedSectionId,
+        selectedSubjectId
+      );
+
+
+      teacherModal.show();
+    };
+
+
+  /* ============================================================
+     DELETE TEACHER
+  ============================================================ */
+
+  window.openDeleteModal =
+    function (teacherId, name) {
+
+      deleteTargetId =
+        teacherId;
+
+      document
+        .getElementById(
+          "deleteTeacherName"
+        )
+        .textContent =
+        name;
+
+      deleteModal.show();
+    };
+
+
+  document
+    .getElementById("confirmDeleteBtn")
+    .addEventListener(
+      "click",
+      async () => {
+
+        try {
+
+          const res =
+            await Session.authFetch(
+              `${API_BASE}/api/teachers/${deleteTargetId}`,
+              {
+                method: "DELETE"
+              }
+            );
+
+
+          if (
+            !res.ok &&
+            res.status !== 204
+          ) {
+
+            throw new Error(
+              DashboardShell.errorMessage(
+                await res.json(),
+                "Delete failed"
+              )
+            );
+          }
+
+
+          showToast(
+            "Teacher deleted successfully."
+          );
+
+
+          deleteModal.hide();
+
+          await loadTeachers();
+
+        } catch (e) {
+
+          console.error(
+            "DELETE TEACHER ERROR:",
+            e
+          );
+
+          showToast(
+            e.message,
+            true
+          );
+        }
+      }
+    );
+
+
+  /* ============================================================
+     TEACHER FORM SUBMIT
+  ============================================================ */
+
+document
+  .getElementById("teacherForm")
+  .addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const teacherId =
+      document.getElementById("teacherId").value.trim();
+
+    const isEdit = Boolean(teacherId);
+
+    const submitBtn =
+      document.getElementById("teacherSubmitBtn");
+
+    submitBtn.disabled = true;
+
+    try {
+
+      // =========================================================
+      // 1. GET FORM VALUES
+      // =========================================================
+
+      const sectionValue =
+        teacherSectionSelect.value
+          ? Number(teacherSectionSelect.value)
+          : null;
+
+      const subjectValue =
+        teacherSubjectSelect.value
+          ? Number(teacherSubjectSelect.value)
+          : null;
+
+
+      // =========================================================
+      // 2. CREATE TEACHER PAYLOAD
+      // =========================================================
+
+      const teacherPayload = {
+
+        full_name:
+          document
+            .getElementById("fullName")
+            .value
+            .trim(),
+
+        username:
+          document
+            .getElementById("username")
+            .value
+            .trim(),
+
+        email:
+          document
+            .getElementById("email")
+            .value
+            .trim(),
+
+        employee_code:
+          document
+            .getElementById("employeeCode")
+            .value
+            .trim() || null,
+
+        phone:
+          document
+            .getElementById("phone")
+            .value
+            .trim() || null,
+
+        qualification:
+          document
+            .getElementById("qualification")
+            .value
+            .trim() || null,
+
+        specialization:
+          document
+            .getElementById("specialization")
+            .value
+            .trim() || null,
+
+        // IMPORTANT:
+        // This makes the teacher the class teacher
+        // of the selected section.
+        section_id: sectionValue
+      };
+
+
+      // Password only during CREATE
+      if (!isEdit) {
+
+        teacherPayload.password =
+          document
+            .getElementById("password")
+            .value;
+      }
+
+
+      // Status only during EDIT
+      if (isEdit) {
+
+        teacherPayload.status =
+          document
+            .getElementById("statusSelect")
+            .value;
+      }
+
+
+      console.log(
+        "========== TEACHER SAVE =========="
+      );
+
+      console.log(
+        "Teacher payload:",
+        teacherPayload
+      );
+
+
+      // =========================================================
+      // 3. CREATE / UPDATE TEACHER
+      // =========================================================
+
+      let teacherResponse;
+
+      if (isEdit) {
+
+        teacherResponse =
+          await Session.authFetch(
+            `${API_BASE}/api/teachers/${teacherId}`,
+            {
+              method: "PUT",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify(
+                teacherPayload
+              )
+            }
+          );
+
+      } else {
+
+        teacherResponse =
+          await Session.authFetch(
+            `${API_BASE}/api/teachers`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify(
+                teacherPayload
+              )
+            }
+          );
+      }
+
+
+      // =========================================================
+      // 4. CHECK TEACHER RESPONSE
+      // =========================================================
+
+      if (!teacherResponse.ok) {
+
+        let errorData = {};
+
+        try {
+          errorData =
+            await teacherResponse.json();
+        } catch (_) {
+          errorData = {
+            detail:
+              `Server returned HTTP ${teacherResponse.status}`
+          };
+        }
+
+        console.error(
+          "TEACHER SAVE ERROR:",
+          errorData
+        );
+
+        throw new Error(
+          DashboardShell.errorMessage(
+            errorData,
+            isEdit
+              ? "Teacher update failed."
+              : "Teacher creation failed."
+          )
+        );
+      }
+
+
+      // =========================================================
+      // 5. GET SAVED TEACHER
+      // =========================================================
+
+      const savedTeacher =
+        await teacherResponse.json();
+
+      const savedTeacherId =
+        isEdit
+          ? Number(teacherId)
+          : Number(savedTeacher.teacher_id);
+
+
+      if (
+        !savedTeacherId ||
+        Number.isNaN(savedTeacherId)
+      ) {
+        throw new Error(
+          "Teacher was saved, but the server did not return a valid teacher ID."
+        );
+      }
+
+
+      console.log(
+        "Saved Teacher ID:",
+        savedTeacherId
+      );
+
+
+      // =========================================================
+      // 6. SECTION ASSIGNMENT
+      // =========================================================
+      //
+      // CREATE:
+      // section_id already went to create_teacher()
+      //
+      // EDIT:
+      // section_id already goes to update_teacher()
+      //
+      // Therefore we DO NOT need to call
+      // /section separately here.
+      //
+      // =========================================================
+
+
+      // =========================================================
+      // 7. SUBJECT ASSIGNMENT
+      // =========================================================
+
+      if (
+        subjectValue !== null &&
+        sectionValue !== null
+      ) {
+
+        const assignmentPayload = {
+
+          subject_id: subjectValue,
+
+          section_id: sectionValue
+        };
+
+
+        console.log(
+          "Sending subject assignment:",
+          assignmentPayload
+        );
+
+
+        const assignmentResponse =
+          await Session.authFetch(
+            `${API_BASE}/api/teachers/${savedTeacherId}/assignments`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json"
+              },
+
+              body: JSON.stringify(
+                assignmentPayload
+              )
+            }
+          );
+
+
+        if (!assignmentResponse.ok) {
+
+          let assignmentError = {};
+
+          try {
+            assignmentError =
+              await assignmentResponse.json();
+          } catch (_) {
+            assignmentError = {
+              detail:
+                `Subject assignment failed with HTTP ${assignmentResponse.status}`
+            };
+          }
+
+
+          console.error(
+            "SUBJECT ASSIGNMENT ERROR:",
+            assignmentError
+          );
+
+
+          throw new Error(
+            DashboardShell.errorMessage(
+              assignmentError,
+              "Teacher saved, but subject assignment failed."
+            )
+          );
+        }
+
+
+        const assignmentResult =
+          await assignmentResponse.json();
+
+
+        console.log(
+          "Subject assignment successful:",
+          assignmentResult
+        );
+      }
+
+
+      // =========================================================
+      // 8. FINAL SUCCESS
+      // =========================================================
+
+      console.log(
+        "========== TEACHER SAVE COMPLETE =========="
+      );
+
+      showToast(
+        isEdit
+          ? "Teacher updated successfully."
+          : "Teacher created successfully."
+      );
+
+
+      teacherModal.hide();
+
+
+      // Refresh teacher list
+      await loadTeachers();
+
+
+    } catch (error) {
+
+      console.error(
+        "========== TEACHER FORM ERROR =========="
+      );
+
+      console.error(error);
+
+      showToast(
+        error.message ||
+          "Something went wrong while saving the teacher.",
+        true
+      );
+
+    } finally {
+
+      submitBtn.disabled = false;
+    }
+  });
+
+
+  /* ============================================================
+     LOAD CLASSES
+  ============================================================ */
+
+  async function loadTeacherClasses(
+    selectedClassId = null,
+    selectedSectionId = null,
+    selectedSubjectId = null
+  ) {
+
+    try {
+
+      teacherClassSelect.innerHTML =
+        '<option value="">Select Class</option>';
+
+      teacherSectionSelect.innerHTML =
+        '<option value="">Select Section</option>';
+
+      teacherSubjectSelect.innerHTML =
+        '<option value="">Select Subject</option>';
+
+
+      teacherSectionSelect.disabled =
+        true;
+
+      teacherSubjectSelect.disabled =
+        true;
+
+
+      /*
+        Get classes
+      */
+
+      const response =
+        await Session.authFetch(
+          `${API_BASE}/api/academic/classes`
+        );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Failed to load classes"
+        );
+      }
+
+
+      const classes =
+        await response.json();
+
+
+      console.log(
+        "Classes received:",
+        classes
+      );
+
+
+      /*
+        Populate class dropdown
+      */
+
+      classes.forEach(
+        (cls) => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+
+          option.value =
+            cls.class_id;
+
+
+          option.textContent =
+            cls.class_name;
+
+
+          if (
+            selectedClassId !== null &&
+            Number(selectedClassId) ===
+              Number(cls.class_id)
+          ) {
+
+            option.selected =
+              true;
+
+          }
+
+
+          teacherClassSelect
+            .appendChild(option);
+
+        }
+      );
+
+
+      /*
+        Edit mode:
+        Load sections + subjects
+      */
+
+      if (
+        selectedClassId !== null
+      ) {
+
+        await loadTeacherSections(
+          selectedClassId,
+          selectedSectionId
+        );
+
+
+        await loadTeacherSubjects(
+          selectedClassId,
+          selectedSubjectId
+        );
+      }
+
+    } catch (error) {
+
+      console.error(
+        "ERROR LOADING CLASSES:",
+        error
+      );
+
+
+      teacherClassSelect.innerHTML =
+        '<option value="">Unable to load classes</option>';
+    }
+  }
+
+
+  /* ============================================================
+     LOAD SECTIONS
+  ============================================================ */
+
+  async function loadTeacherSections(
+    classId,
+    selectedSectionId = null
+  ) {
+
+    console.log(
+      "Loading sections for class:",
+      classId
+    );
+
+
+    if (!classId) {
+
+      teacherSectionSelect.innerHTML =
+        '<option value="">Select Section</option>';
+
+      teacherSectionSelect.disabled =
+        true;
+
+      return;
+    }
+
+
+    teacherSectionSelect.disabled =
+      true;
+
+
+    teacherSectionSelect.innerHTML =
+      '<option value="">Loading sections...</option>';
+
+
+    try {
+
+      const response =
+        await Session.authFetch(
+          `${API_BASE}/api/academic/sections?class_id=${encodeURIComponent(classId)}`
+        );
+
+
+      console.log(
+        "Sections API status:",
+        response.status
+      );
+
+
+      if (!response.ok) {
+
+        const errorText =
+          await response.text();
+
+
+        console.error(
+          "Sections API error:",
+          errorText
+        );
+
+
+        throw new Error(
+          "Failed to load sections"
+        );
+      }
+
+
+      const sections =
+        await response.json();
+
+
+      console.log(
+        "Sections received:",
+        sections
+      );
+
+
+      teacherSectionSelect.innerHTML =
+        '<option value="">Select Section</option>';
+
+
+      if (
+        !Array.isArray(sections) ||
+        sections.length === 0
+      ) {
+
+        teacherSectionSelect.innerHTML =
+          '<option value="">No sections available</option>';
+
+        teacherSectionSelect.disabled =
+          true;
+
+        return;
+      }
+
+
+      sections.forEach(
+        (section) => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+
+          option.value =
+            section.section_id;
+
+
+          option.textContent =
+            section.section_name;
+
+
+          if (
+            selectedSectionId !== null &&
+            Number(selectedSectionId) ===
+              Number(section.section_id)
+          ) {
+
+            option.selected =
+              true;
+          }
+
+
+          teacherSectionSelect
+            .appendChild(option);
+        }
+      );
+
+
+      teacherSectionSelect.disabled =
+        false;
+
+
+      console.log(
+        "Section dropdown enabled. Total sections:",
+        sections.length
+      );
+
+    } catch (error) {
+
+      console.error(
+        "ERROR LOADING SECTIONS:",
+        error
+      );
+
+
+      teacherSectionSelect.innerHTML =
+        '<option value="">Unable to load sections</option>';
+
+      teacherSectionSelect.disabled =
+        true;
+    }
+  }
+
+
+  /* ============================================================
+     LOAD SUBJECTS
+  ============================================================ */
+
+  async function loadTeacherSubjects(
+    classId,
+    selectedSubjectId = null
+  ) {
+
+    console.log(
+      "Loading subjects for class:",
+      classId
+    );
+
+
+    if (!classId) {
+
+      teacherSubjectSelect.innerHTML =
+        '<option value="">Select Subject</option>';
+
+      teacherSubjectSelect.disabled =
+        true;
+
+      return;
+    }
+
+
+    teacherSubjectSelect.disabled =
+      true;
+
+
+    teacherSubjectSelect.innerHTML =
+      '<option value="">Loading subjects...</option>';
+
+
+    try {
+
+      /*
+        IMPORTANT:
+        Subjects are class-based.
+      */
+
+      const response =
+        await Session.authFetch(
+          `${API_BASE}/api/academic/subjects?class_id=${encodeURIComponent(classId)}`
+        );
+
+
+      console.log(
+        "Subjects API status:",
+        response.status
+      );
+
+
+      if (!response.ok) {
+
+        const errorText =
+          await response.text();
+
+
+        console.error(
+          "Subjects API error:",
+          errorText
+        );
+
+
+        throw new Error(
+          "Failed to load subjects"
+        );
+      }
+
+
+      const subjects =
+        await response.json();
+
+
+      console.log(
+        "Subjects received:",
+        subjects
+      );
+
+
+      teacherSubjectSelect.innerHTML =
+        '<option value="">Select Subject</option>';
+
+
+      if (
+        !Array.isArray(subjects) ||
+        subjects.length === 0
+      ) {
+
+        teacherSubjectSelect.innerHTML =
+          '<option value="">No subjects available</option>';
+
+        teacherSubjectSelect.disabled =
+          true;
+
+        return;
+      }
+
+
+      subjects.forEach(
+        (subject) => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+
+          option.value =
+            subject.subject_id;
+
+
+          option.textContent =
+            subject.subject_code
+              ? `${subject.subject_name} (${subject.subject_code})`
+              : subject.subject_name;
+
+
+          if (
+            selectedSubjectId !== null &&
+            Number(selectedSubjectId) ===
+              Number(subject.subject_id)
+          ) {
+
+            option.selected =
+              true;
+          }
+
+
+          teacherSubjectSelect
+            .appendChild(option);
+        }
+      );
+
+
+      teacherSubjectSelect.disabled =
+        false;
+
+
+      console.log(
+        "Subject dropdown enabled. Total subjects:",
+        subjects.length
+      );
+
+    } catch (error) {
+
+      console.error(
+        "ERROR LOADING SUBJECTS:",
+        error
+      );
+
+
+      teacherSubjectSelect.innerHTML =
+        '<option value="">Unable to load subjects</option>';
+
+      teacherSubjectSelect.disabled =
+        true;
+    }
+  }
+
+
+  /* ============================================================
+     CLASS CHANGE
+  ============================================================ */
+
+  teacherClassSelect.addEventListener(
+    "change",
+    async function () {
+
+      const classId =
+        this.value;
+
+
+      console.log(
+        "Class selected:",
+        classId
+      );
+
+
+      if (!classId) {
+
+        teacherSectionSelect.innerHTML =
+          '<option value="">Select Section</option>';
+
+        teacherSubjectSelect.innerHTML =
+          '<option value="">Select Subject</option>';
+
+        teacherSectionSelect.disabled =
+          true;
+
+        teacherSubjectSelect.disabled =
+          true;
+
+        return;
+      }
+
+
+      /*
+        Class change کے بعد
+        Section + Subject دونوں reload ہوں گے
+      */
+
+      await loadTeacherSections(
+        classId
+      );
+
+
+      await loadTeacherSubjects(
+        classId
+      );
+    }
+  );
+
+
+  /* ============================================================
+     SECTION CHANGE
+  ============================================================ */
+
+  teacherSectionSelect.addEventListener(
+    "change",
+    function () {
+
+      console.log(
+        "Section selected:",
+        this.value
+      );
+
+    }
+  );
+
+
+  /* ============================================================
+     SUBJECT CHANGE
+  ============================================================ */
+
+  teacherSubjectSelect.addEventListener(
+    "change",
+    function () {
+
+      console.log(
+        "Subject selected:",
+        this.value
+      );
+
+    }
+  );
+
+
+  /* ============================================================
+     DEBUG HELPER
+  ============================================================ */
+
+  window.debugTeacherAssignment =
+    function () {
+
+      console.log(
+        "========== TEACHER ASSIGNMENT DEBUG =========="
+      );
+
+      console.log(
+        "Class:",
+        teacherClassSelect.value
+      );
+
+      console.log(
+        "Section:",
+        teacherSectionSelect.value
+      );
+
+      console.log(
+        "Subject:",
+        teacherSubjectSelect.value
+      );
+
+      console.log(
+        "==============================================="
+      );
+    };
+
+</script>
+</body>
+</html>

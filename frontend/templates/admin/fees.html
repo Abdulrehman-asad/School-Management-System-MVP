@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fee Management — Shaheen Model Girls High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none"><path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/></g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-students" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.3 4.5 2.5 4.5 5.3"/></g>
+    <g id="icon-teachers" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5Z"/><path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></g>
+    <g id="icon-classes" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M9 9v9"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-fees" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 1.7-2.5 2-2.5.6-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-notice" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5Z"/><path d="M8 9h8M8 13h8M8 17h5"/></g>
+    <g id="icon-reports" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-plus" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></g>
+    <g id="icon-edit" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16.5 3.5 4 4L8 20l-5 1 1-5Z"/></g>
+    <g id="icon-trash" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></g>
+    <g id="icon-backup" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></g>
+    <g id="icon-download" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g>
+    <g id="icon-upload" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9m0 0 4 4m-4-4-4 4"/><path d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></g>
+    <g id="icon-check-circle" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.3 2.3 4.7-5"/></g>
+    <g id="icon-warning" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.01"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Admin Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+    <div class="nav-section-label">Academics</div>
+    <a href="students.html"><svg viewBox="0 0 24 24"><use href="#icon-students"/></svg>Students</a>
+    <a href="teachers.html"><svg viewBox="0 0 24 24"><use href="#icon-teachers"/></svg>Teachers</a>
+    <a href="classes.html"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg>Classes &amp; Sections</a>
+    <a href="timetable.html"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>Timetable</a>
+    <div class="nav-section-label">Operations</div>
+    <a href="attendance.html"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg>Attendance</a>
+    <a href="exams.html"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg>Exams &amp; Results</a>
+    <a href="fees.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg>Fee Management</a>
+    <a href="notices.html"><svg viewBox="0 0 24 24"><use href="#icon-notice"/></svg>Notice Board</a>
+    <a href="reports.html"><svg viewBox="0 0 24 24"><use href="#icon-reports"/></svg>Reports</a>
+    <div class="nav-section-label">System</div>
+    <a href="backup.html"><svg viewBox="0 0 24 24"><use href="#icon-backup"/></svg>Backup &amp; Restore</a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0</div>
+</aside>
+
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name">Admin</div><div class="role">admin</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <h1 class="page-title">Fee Management</h1>
+    <p class="page-subtitle">Fee structures, challan generation, and payment recording.</p>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #e3f3ea; color: #1f6b46;"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statCollected">—</div><div class="label">Collected</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #fdecec; color: #9c2b2b;"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statPending">—</div><div class="label">Pending</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--sky-tint); color: var(--sky);"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statChallans">—</div><div class="label">Total Challans</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--gold-soft); color: #8a6317;"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statOverdue">—</div><div class="label">Overdue</div></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav nav-tabs mb-3" style="border-bottom: 1px solid var(--border-color);">
+      <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#structuresPane" type="button">Fee Structures</button></li>
+      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#challansPane" type="button">Challans</button></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="structuresPane">
+        <div class="dash-card">
+          <div class="card-title">Fee Structures<button class="btn-dash-primary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" id="addStructureBtn">+ Add Structure</button></div>
+          <table class="dash-table"><thead><tr><th>Class</th><th>Title</th><th>Amount</th><th>Frequency</th><th></th></tr></thead>
+            <tbody id="structuresBody"><tr><td colspan="5" class="text-center text-muted py-4">Loading...</td></tr></tbody></table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="challansPane">
+        <div class="dash-card">
+          <div class="card-title">
+            Fee Challans
+            <div class="d-flex gap-2">
+              <button class="btn-dash-primary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" id="generateStudentBtn">Generate for Student</button>
+              <button class="btn-dash-primary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" id="generateClassBtn">Generate for Section</button>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <select class="form-select form-select-sm w-auto" id="challanStatusFilter">
+              <option value="">All Statuses</option><option value="unpaid">Unpaid</option>
+              <option value="paid">Paid</option><option value="overdue">Overdue</option><option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <table class="dash-table"><thead><tr><th>Challan No</th><th>Student</th><th>Amount</th><th>Due Date</th><th>Status</th><th></th></tr></thead>
+            <tbody id="challansBody"><tr><td colspan="6" class="text-center text-muted py-4">Loading...</td></tr></tbody></table>
+          <div class="pagination-row" id="challansPagination"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+<div class="modal fade" id="structureModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Add Fee Structure</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="structureForm"><div class="modal-body">
+    <div class="mb-3"><label class="form-label small fw-semibold">Class</label><select class="form-select" id="structureClassSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Fee Title</label><input type="text" class="form-control" id="structureTitle" required placeholder="e.g. Tuition Fee"></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Amount (Rs.)</label><input type="number" class="form-control" id="structureAmount" required min="1"></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Frequency</label>
+      <select class="form-select" id="structureFrequency">
+        <option value="monthly">Monthly</option><option value="quarterly">Quarterly</option>
+        <option value="annual">Annual</option><option value="one_time">One-time</option>
+      </select>
+    </div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Save</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="generateStudentModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Generate Challan for Student</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="generateStudentForm"><div class="modal-body">
+    <div class="mb-3"><label class="form-label small fw-semibold">Student</label><select class="form-select" id="genStudentSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Fee Structure</label><select class="form-select" id="genStudentStructureSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Month/Year Label</label><input type="text" class="form-control" id="genStudentMonthYear" placeholder="e.g. August 2026"></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Due Date</label><input type="date" class="form-control" id="genStudentDueDate" required></div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Generate</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="generateClassModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Generate Challans for a Section</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="generateClassForm"><div class="modal-body">
+    <p class="small text-muted">Generates a challan for every active student in the selected section at once.</p>
+    <div class="mb-3"><label class="form-label small fw-semibold">Section</label><select class="form-select" id="genClassSectionSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Fee Structure</label><select class="form-select" id="genClassStructureSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Month/Year Label</label><input type="text" class="form-control" id="genClassMonthYear" placeholder="e.g. August 2026"></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Due Date</label><input type="date" class="form-control" id="genClassDueDate" required></div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Generate for Section</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="payModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Record Payment</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="payForm"><div class="modal-body">
+    <input type="hidden" id="payChallanId">
+    <div class="mb-3"><label class="form-label small fw-semibold">Payment Method</label>
+      <select class="form-select" id="payMethod"><option value="cash">Cash</option><option value="bank_transfer">Bank Transfer</option><option value="online">Online</option></select>
+    </div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Paid Date</label><input type="date" class="form-control" id="payDate"></div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Mark as Paid</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Confirm Delete</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <div class="modal-body"><p id="deleteConfirmText">Are you sure?</p></div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Delete</button>
+  </div>
+</div></div></div>
+
+<div class="toast-custom-dash" id="dashToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost:8000" : "";
+  let structuresCache = [], challansCache = [], classesCache = [], sectionsCache = [], studentsCache = [];
+  let deleteAction = null;
+  const structureModal = new bootstrap.Modal(document.getElementById("structureModal"));
+  const generateStudentModal = new bootstrap.Modal(document.getElementById("generateStudentModal"));
+  const generateClassModal = new bootstrap.Modal(document.getElementById("generateClassModal"));
+  const payModal = new bootstrap.Modal(document.getElementById("payModal"));
+  const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+
+  if (Session.bootstrap({ requireRole: ["admin", "super_admin"] })) {
+    DashboardShell.init({ apiBase: API_BASE });
+    loadAll();
+  }
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById("dashToast");
+    toast.textContent = message;
+    toast.classList.toggle("error", isError);
+    toast.classList.add("show");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+  async function safeJson(promise, fallback = []) {
+    try { const res = await promise; return res.ok ? await res.json() : fallback; } catch (e) { return fallback; }
+  }
+  function classLabel(id) { const c = classesCache.find((x) => x.class_id === id); return c ? c.class_name : "#" + id; }
+  function studentLabel(id) { const s = studentsCache.find((x) => x.student_id === id); return s ? s.full_name : "#" + id; }
+
+  async function loadAll() {
+    classesCache = await safeJson(Session.authFetch(`${API_BASE}/api/academic/classes`));
+    sectionsCache = await safeJson(Session.authFetch(`${API_BASE}/api/academic/sections`));
+    studentsCache = await safeJson(Session.authFetch(`${API_BASE}/api/students?limit=1000`));
+    structuresCache = await safeJson(Session.authFetch(`${API_BASE}/api/fees/structures`));
+    challansCache = await safeJson(Session.authFetch(`${API_BASE}/api/fees/challans?limit=1000`));
+    const summary = await safeJson(Session.authFetch(`${API_BASE}/api/fees/challans/summary`), null);
+
+    if (summary) {
+      document.getElementById("statCollected").textContent = "Rs. " + Number(summary.total_amount_collected).toLocaleString();
+      document.getElementById("statPending").textContent = "Rs. " + Number(summary.total_amount_pending).toLocaleString();
+      document.getElementById("statChallans").textContent = summary.total_challans;
+      document.getElementById("statOverdue").textContent = summary.overdue_count;
+    }
+
+    document.getElementById("structureClassSelect").innerHTML = classesCache.map((c) => `<option value="${c.class_id}">${DashboardShell.escapeHtml(c.class_name)}</option>`).join("");
+    document.getElementById("genStudentSelect").innerHTML = studentsCache.map((s) => `<option value="${s.student_id}">${DashboardShell.escapeHtml(s.full_name)} (${s.registration_no})</option>`).join("");
+    document.getElementById("genStudentStructureSelect").innerHTML = structuresCache.map((s) => `<option value="${s.fee_structure_id}">${DashboardShell.escapeHtml(s.fee_title)} — Rs.${s.amount} (${classLabel(s.class_id)})</option>`).join("");
+    document.getElementById("genClassSectionSelect").innerHTML = sectionsCache.map((s) => `<option value="${s.section_id}">${classLabel(s.class_id)} - ${s.section_name}</option>`).join("");
+    document.getElementById("genClassStructureSelect").innerHTML = document.getElementById("genStudentStructureSelect").innerHTML;
+
+    renderStructures();
+    renderChallans();
+  }
+
+  function renderStructures() {
+    const tbody = document.getElementById("structuresBody");
+    if (!structuresCache.length) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No fee structures yet.</td></tr>'; return; }
+    tbody.innerHTML = structuresCache.map((s) => `
+      <tr><td>${classLabel(s.class_id)}</td><td>${DashboardShell.escapeHtml(s.fee_title)}</td><td>Rs. ${Number(s.amount).toLocaleString()}</td><td class="text-capitalize">${s.frequency}</td>
+      <td class="text-end"><button class="icon-btn" style="width:32px;height:32px;" onclick="deleteStructure(${s.fee_structure_id}, '${DashboardShell.escapeHtml(s.fee_title)}')"><svg viewBox="0 0 24 24" width="15" height="15"><use href="#icon-trash"/></svg></button></td>
+      </tr>`).join("");
+  }
+
+  function renderChallans() {
+    const statusQ = document.getElementById("challanStatusFilter").value;
+    const filtered = challansCache.filter((c) => !statusQ || c.status === statusQ);
+    const tbody = document.getElementById("challansBody");
+    const paginationEl = document.getElementById("challansPagination");
+    if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No challans match.</td></tr>'; paginationEl.innerHTML = ""; return; }
+
+    DashboardShell.Paginator(filtered, 8, (pageRows) => {
+      tbody.innerHTML = pageRows.map((c) => `
+        <tr><td>${c.challan_no}</td><td>${studentLabel(c.student_id)}</td><td>Rs. ${Number(c.amount).toLocaleString()}</td><td>${c.due_date}</td>
+        <td><span class="status-pill ${c.status}">${c.status}</span></td>
+        <td class="text-end">
+          ${c.status !== "paid" ? `<button class="icon-btn" style="width:32px;height:32px;" onclick="openPayModal(${c.challan_id})" title="Mark Paid"><svg viewBox="0 0 24 24" width="15" height="15"><use href="#icon-check-circle"/></svg></button>` : ""}
+          <button class="icon-btn" style="width:32px;height:32px;" onclick="deleteChallan(${c.challan_id}, '${c.challan_no}')"><svg viewBox="0 0 24 24" width="15" height="15"><use href="#icon-trash"/></svg></button>
+        </td></tr>`).join("");
+    }, paginationEl);
+  }
+  document.getElementById("challanStatusFilter").addEventListener("change", renderChallans);
+
+  document.getElementById("addStructureBtn").addEventListener("click", () => { document.getElementById("structureForm").reset(); structureModal.show(); });
+  document.getElementById("structureForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      class_id: parseInt(document.getElementById("structureClassSelect").value, 10),
+      fee_title: document.getElementById("structureTitle").value,
+      amount: parseFloat(document.getElementById("structureAmount").value),
+      frequency: document.getElementById("structureFrequency").value,
+    };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/structures`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Save failed"));
+      showToast("Fee structure added."); structureModal.hide(); await loadAll();
+    } catch (err) { showToast(err.message, true); }
+  });
+  window.deleteStructure = (id, title) => {
+    deleteAction = async () => {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/structures/${id}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 204) throw new Error(DashboardShell.errorMessage(await res.json(), "Delete failed"));
+    };
+    document.getElementById("deleteConfirmText").textContent = `Delete fee structure "${title}"?`;
+    deleteModal.show();
+  };
+
+  document.getElementById("generateStudentBtn").addEventListener("click", () => { document.getElementById("generateStudentForm").reset(); generateStudentModal.show(); });
+  document.getElementById("generateStudentForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      student_id: parseInt(document.getElementById("genStudentSelect").value, 10),
+      fee_structure_id: parseInt(document.getElementById("genStudentStructureSelect").value, 10),
+      month_year: document.getElementById("genStudentMonthYear").value || null,
+      due_date: document.getElementById("genStudentDueDate").value,
+    };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/challans/generate/student`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Generation failed"));
+      showToast("Challan generated."); generateStudentModal.hide(); await loadAll();
+    } catch (err) { showToast(err.message, true); }
+  });
+
+  document.getElementById("generateClassBtn").addEventListener("click", () => { document.getElementById("generateClassForm").reset(); generateClassModal.show(); });
+  document.getElementById("generateClassForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      section_id: parseInt(document.getElementById("genClassSectionSelect").value, 10),
+      fee_structure_id: parseInt(document.getElementById("genClassStructureSelect").value, 10),
+      month_year: document.getElementById("genClassMonthYear").value || null,
+      due_date: document.getElementById("genClassDueDate").value,
+    };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/challans/generate/class`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Generation failed"));
+      const created = await res.json();
+      showToast(`Generated ${created.length} challans for the section.`); generateClassModal.hide(); await loadAll();
+    } catch (err) { showToast(err.message, true); }
+  });
+
+  window.openPayModal = (challanId) => {
+    document.getElementById("payChallanId").value = challanId;
+    document.getElementById("payDate").valueAsDate = new Date();
+    payModal.show();
+  };
+  document.getElementById("payForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const id = document.getElementById("payChallanId").value;
+    const payload = { payment_method: document.getElementById("payMethod").value, paid_date: document.getElementById("payDate").value || null };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/challans/${id}/pay`, { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Payment recording failed"));
+      showToast("Payment recorded."); payModal.hide(); await loadAll();
+    } catch (err) { showToast(err.message, true); }
+  });
+
+  window.deleteChallan = (id, challanNo) => {
+    deleteAction = async () => {
+      const res = await Session.authFetch(`${API_BASE}/api/fees/challans/${id}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 204) throw new Error(DashboardShell.errorMessage(await res.json(), "Delete failed"));
+    };
+    document.getElementById("deleteConfirmText").textContent = `Delete challan "${challanNo}"?`;
+    deleteModal.show();
+  };
+
+  document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
+    try { await deleteAction(); showToast("Deleted successfully."); deleteModal.hide(); await loadAll(); }
+    catch (e) { showToast(e.message, true); }
+  });
+
+</script>
+</body>
+</html>

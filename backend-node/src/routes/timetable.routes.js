@@ -1,0 +1,2 @@
+const express=require('express');const r=express.Router();const c=require('../controllers/timetable.controller');const {getCurrentUser,requireRoles}=require('../middleware/auth');const admin=requireRoles('admin','super_admin');
+r.post('',getCurrentUser,admin,c.create);r.get('',getCurrentUser,c.list);r.get('/my-schedule',getCurrentUser,c.mySchedule);r.get('/:timetable_id',getCurrentUser,c.get);r.put('/:timetable_id',getCurrentUser,admin,c.update);r.delete('/:timetable_id',getCurrentUser,admin,c.del);module.exports=r;

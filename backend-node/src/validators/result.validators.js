@@ -1,0 +1,4 @@
+function id(v,f){const n=Number(v);if(!Number.isInteger(n)){const e=new Error(`${f} must be an integer`);e.status=422;throw e;}return n;}
+function bulk(b){if(!Array.isArray(b.results)||!b.results.length){const e=new Error('results must contain at least one entry');e.status=422;throw e;}return {schedule_id:id(b.schedule_id,'schedule_id'),results:b.results.map(x=>({student_id:id(x.student_id,'student_id'),marks_obtained:Number(x.marks_obtained),remarks:x.remarks??null}))};}
+function update(b){const o={};if(Object.prototype.hasOwnProperty.call(b,'marks_obtained')){const n=Number(b.marks_obtained);if(!Number.isFinite(n)||n<0){const e=new Error('marks_obtained must be a non-negative number');e.status=422;throw e;}o.marks_obtained=n;}if(Object.prototype.hasOwnProperty.call(b,'remarks'))o.remarks=b.remarks;return o;}
+module.exports={bulk,update};

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Dashboard — Shaheen Model Girls High School</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none"><path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/></g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-classes" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M9 9v9"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-plus" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></g>
+    <g id="icon-camera-mini" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.4"/></g>
+    <g id="icon-paperclip" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5 15 5.5a3 3 0 0 1 4.2 4.2L11 18a5 5 0 0 1-7-7l7.8-7.8"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Teacher Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+
+    <div class="nav-section-label">My Classes</div>
+    <a href="#timetableCard"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>My Timetable</a>
+    <a href="#attendanceCard"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg>Mark Attendance</a>
+    <a href="#homeworkCard"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg>Homework</a>
+
+    <div class="nav-section-label">System</div>
+    <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-settings"/></svg>Settings<span class="soon-badge">soon</span></a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0 &middot; Part 8</div>
+</aside>
+
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">T</div>
+          <div class="meta"><div class="name">Teacher</div><div class="role">teacher</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <h1 class="page-title">Teacher Dashboard</h1>
+    <p class="page-subtitle">Your classes, timetable, and homework at a glance.</p>
+
+    <!-- Profile card -->
+    <div class="dash-card mb-4">
+      <div class="d-flex flex-wrap gap-3 align-items-center">
+        <div style="position:relative; width:64px; height:64px; flex-shrink:0;">
+          <div class="teacher-avatar" id="profileAvatarWrap" style="width:64px;height:64px;font-size:1.3rem;background:linear-gradient(155deg, #1D3E6E, #122845); overflow:hidden;">
+            <span id="profileAvatar">--</span>
+            <img id="profilePhotoImg" style="display:none; width:100%; height:100%; object-fit:cover;" alt="Profile photo">
+          </div>
+          <button type="button" id="photoUploadTrigger" title="Change photo"
+                  style="position:absolute; bottom:-2px; right:-2px; width:24px; height:24px; border-radius:50%; background:var(--sky); border:2px solid var(--bg-surface); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg viewBox="0 0 24 24" width="12" height="12"><use href="#icon-camera-mini"/></svg>
+          </button>
+          <input type="file" id="photoFileInput" accept=".jpg,.jpeg,.png,.webp" style="display:none;">
+        </div>
+        <div class="flex-grow-1">
+          <div class="fw-semibold fs-5" id="profileName">Loading...</div>
+          <div class="text-muted small" id="profileMeta">—</div>
+          <div class="small mt-1" id="photoUploadStatus"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--sky-tint); color: var(--sky);"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg></div>
+          <div><div class="value" id="statSections">—</div><div class="label">Assigned Sections</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--gold-soft); color: #8a6317;"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg></div>
+          <div><div class="value" id="statSubjects">—</div><div class="label">Subjects Taught</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #e3f3ea; color: #1f6b46;"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg></div>
+          <div><div class="value" id="statToday">—</div><div class="label">Classes Today</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #fdecec; color: #9c2b2b;"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg></div>
+          <div><div class="value" id="statHomeworkCount">—</div><div class="label">Homework Assigned</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6" id="timetableCard">
+        <div class="dash-card">
+          <div class="card-title">My Weekly Timetable</div>
+          <div id="timetableList" style="max-height:340px; overflow-y:auto;"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6" id="attendanceCard">
+        <div class="dash-card">
+          <div class="card-title">Mark Attendance</div>
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <select class="form-select form-select-sm" id="attendanceSectionSelect"><option value="">Select section...</option></select>
+            </div>
+            <div class="col-6">
+              <input type="date" class="form-control form-control-sm" id="attendanceDate">
+            </div>
+          </div>
+          <button class="btn-dash-primary btn-sm mb-3" id="loadAttendanceBtn">Load Students</button>
+          <div id="attendanceStudentList"></div>
+          <button class="btn-dash-primary btn-sm mt-2" id="submitAttendanceBtn" style="display:none;">Submit Attendance</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4" id="homeworkCard">
+      <div class="col-12">
+        <div class="dash-card">
+          <div class="card-title">
+            My Homework
+            <button class="btn-dash-primary d-inline-flex align-items-center gap-2" style="padding:0.4rem 0.9rem; font-size:0.8rem;" data-bs-toggle="modal" data-bs-target="#homeworkModal">
+              <svg viewBox="0 0 24 24" width="14" height="14"><use href="#icon-plus"/></svg>Assign Homework
+            </button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="dash-table">
+              <thead><tr><th>Title</th><th>Section</th><th>Subject</th><th>Due Date</th></tr></thead>
+              <tbody id="homeworkBody"><tr><td colspan="4" class="text-center text-muted py-4">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Assign Homework Modal -->
+<div class="modal fade" id="homeworkModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content dash-modal">
+      <div class="modal-header"><h5 class="modal-title">Assign Homework</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+      <form id="homeworkForm">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Section</label>
+            <select class="form-select" id="hwSection" required></select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Subject</label>
+            <select class="form-select" id="hwSubject" required></select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Title</label>
+            <input type="text" class="form-control" id="hwTitle" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small fw-semibold">Description</label>
+            <textarea class="form-control" id="hwDescription" rows="3"></textarea>
+          </div>
+          <div class="row g-2">
+            <div class="col-6">
+              <label class="form-label small fw-semibold">Assigned Date</label>
+              <input type="date" class="form-control" id="hwAssignedDate" required>
+            </div>
+            <div class="col-6">
+              <label class="form-label small fw-semibold">Due Date</label>
+              <input type="date" class="form-control" id="hwDueDate" required>
+            </div>
+          </div>
+          <div class="mt-3">
+            <label class="form-label small fw-semibold d-flex align-items-center gap-1">
+              <svg viewBox="0 0 24 24" width="14" height="14"><use href="#icon-paperclip"/></svg>Attachment (optional)
+            </label>
+            <input type="file" class="form-control form-control-sm" id="hwAttachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+            <div class="form-text">PDF, Word, or image — max 10MB.</div>
+            <div class="small mt-1" id="hwAttachmentStatus"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn-dash-primary">Assign</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast-custom-dash" id="dashToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000" : "";
+
+  const DAY_NAMES = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+  const TODAY_NAME = DAY_NAMES[new Date().getDay() - 1] || null; // Sunday (0) has no school day
+
+  let myTeacherId = null;
+  let myAssignments = [];
+  let sectionsCache = [];
+  let subjectsCache = [];
+  const homeworkModal = new bootstrap.Modal(document.getElementById("homeworkModal"));
+
+  if (Session.bootstrap({ requireRole: ["teacher"] })) {
+    DashboardShell.init({ apiBase: API_BASE });
+    bootstrapTeacherPage();
+  }
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById("dashToast");
+    toast.textContent = message;
+    toast.classList.toggle("error", isError);
+    toast.classList.add("show");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+
+  async function safeJson(promise, fallback = []) {
+    try {
+      const res = await promise;
+      if (!res.ok) return fallback;
+      return await res.json();
+    } catch (e) { return fallback; }
+  }
+
+  async function bootstrapTeacherPage() {
+    const me = await safeJson(Session.authFetch(`${API_BASE}/api/teachers/me`), null);
+    if (!me) { showToast("Could not load your teacher profile.", true); return; }
+    myTeacherId = me.teacher_id;
+
+    renderProfile(me);
+
+    const [
+  assignments,
+  sections,
+  subjects,
+  timetable,
+  homework,
+  mySection
+] = await Promise.all([
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/teachers/${myTeacherId}/assignments`
+    )
+  ),
+
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/academic/sections`
+    )
+  ),
+
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/academic/subjects`
+    )
+  ),
+
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/timetable/my-schedule`
+    )
+  ),
+
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/homework?teacher_id=${myTeacherId}`
+    )
+  ),
+
+  safeJson(
+    Session.authFetch(
+      `${API_BASE}/api/teachers/me/section`
+    ),
+    null
+  ),
+]);
+
+    myAssignments = assignments;
+sectionsCache = sections;
+subjectsCache = subjects;
+
+renderStatCards(timetable, homework);
+renderTimetable(timetable);
+renderHomeworkTable(homework);
+
+populateAssignmentDropdowns(mySection);
+
+document.getElementById("attendanceDate").valueAsDate = new Date();
+  }
+
+  function renderProfile(me) {
+    document.getElementById("profileName").textContent = me.full_name;
+    document.getElementById("profileMeta").textContent = `${me.employee_code ? "Employee Code: " + me.employee_code + " · " : ""}${me.qualification || "Teacher"}`;
+    document.getElementById("profileAvatar").textContent = me.full_name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+
+    const img = document.getElementById("profilePhotoImg");
+    if (me.profile_image) {
+      img.src = `${API_BASE}/uploads/${me.profile_image}`;
+      img.style.display = "block";
+      document.getElementById("profileAvatar").style.display = "none";
+    }
+
+    DashboardShell.setupPhotoUpload({
+      apiBase: API_BASE,
+      triggerId: "photoUploadTrigger",
+      inputId: "photoFileInput",
+      imgId: "profilePhotoImg",
+      textAvatarId: "profileAvatar",
+      statusId: "photoUploadStatus",
+    });
+  }
+
+  function sectionLabel(sectionId) {
+    const s = sectionsCache.find((x) => x.section_id === sectionId);
+    return s ? `Section ${s.section_name}` : `Section #${sectionId}`;
+  }
+  function subjectLabel(subjectId) {
+    const s = subjectsCache.find((x) => x.subject_id === subjectId);
+    return s ? s.subject_name : `Subject #${subjectId}`;
+  }
+
+  function renderStatCards(timetable, homework) {
+    const uniqueSections = new Set(myAssignments.map((a) => a.section_id));
+    const uniqueSubjects = new Set(myAssignments.map((a) => a.subject_id));
+    document.getElementById("statSections").textContent = uniqueSections.size;
+    document.getElementById("statSubjects").textContent = uniqueSubjects.size;
+    document.getElementById("statToday").textContent = timetable.filter((t) => t.day_of_week === TODAY_NAME).length;
+    document.getElementById("statHomeworkCount").textContent = homework.length;
+  }
+
+  function renderTimetable(timetable) {
+    const el = document.getElementById("timetableList");
+    if (!timetable.length) {
+      el.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg><div>No timetable entries yet.</div></div>';
+      return;
+    }
+    const byDay = {};
+    timetable.forEach((t) => { (byDay[t.day_of_week] = byDay[t.day_of_week] || []).push(t); });
+
+    el.innerHTML = DAY_NAMES.filter((d) => byDay[d]).map((day) => `
+      <div class="mb-2">
+        <div class="small fw-semibold text-uppercase text-muted mb-1">${day}${day === TODAY_NAME ? " &middot; today" : ""}</div>
+        ${byDay[day].map((t) => `
+          <div class="notice-item">
+            <div class="dot" style="background: var(--sky);"></div>
+            <div><div class="title">${subjectLabel(t.subject_id)} &middot; ${sectionLabel(t.section_id)}</div><div class="date">${t.start_time} &ndash; ${t.end_time}</div></div>
+          </div>
+        `).join("")}
+      </div>
+    `).join("");
+  }
+
+  function renderHomeworkTable(homework) {
+    const tbody = document.getElementById("homeworkBody");
+    if (!homework.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted py-4">No homework assigned yet.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = homework.map((h) => `
+      <tr>
+        <td>${DashboardShell.escapeHtml(h.title)} ${h.attachment_path ? `<a href="${API_BASE}/uploads/${h.attachment_path}" target="_blank" rel="noopener" title="Download attachment" style="margin-left:6px;"><svg viewBox="0 0 24 24" width="13" height="13"><use href="#icon-paperclip"/></svg></a>` : ""}</td>
+        <td>${sectionLabel(h.section_id)}</td>
+        <td>${subjectLabel(h.subject_id)}</td>
+        <td>${h.due_date}</td>
+      </tr>
+    `).join("");
+  }
+
+  function populateAssignmentDropdowns(mySection) {
+
+  // ---------------------------------------------------------
+  // Attendance
+  // ---------------------------------------------------------
+
+  const attendanceSelect =
+    document.getElementById("attendanceSectionSelect");
+
+  if (mySection && mySection.section_id) {
+
+    attendanceSelect.innerHTML = `
+      <option value="${mySection.section_id}">
+        ${DashboardShell.escapeHtml(mySection.class_name)}
+        - Section ${DashboardShell.escapeHtml(mySection.section_name)}
+      </option>
+    `;
+
+    attendanceSelect.value = String(mySection.section_id);
+
+  } else {
+
+    attendanceSelect.innerHTML = `
+      <option value="">
+        No assigned class section
+      </option>
+    `;
+  }
+
+
+  // ---------------------------------------------------------
+  // Homework
+  // ---------------------------------------------------------
+
+  const uniqueSectionIds = [
+    ...new Set(
+      myAssignments.map((a) => a.section_id)
+    )
+  ];
+
+  const sectionOptions = uniqueSectionIds
+    .map(
+      (id) =>
+        `<option value="${id}">
+          ${sectionLabel(id)}
+        </option>`
+    )
+    .join("");
+
+  const hwSection =
+    document.getElementById("hwSection");
+
+  hwSection.innerHTML =
+    sectionOptions ||
+    '<option value="">No assigned sections</option>';
+
+  hwSection.addEventListener(
+    "change",
+    updateHwSubjectOptions
+  );
+
+  updateHwSubjectOptions();
+}
+
+  function updateHwSubjectOptions() {
+    const sectionId = parseInt(document.getElementById("hwSection").value, 10);
+    const subjectIds = [...new Set(myAssignments.filter((a) => a.section_id === sectionId).map((a) => a.subject_id))];
+    document.getElementById("hwSubject").innerHTML = subjectIds.map((id) => `<option value="${id}">${subjectLabel(id)}</option>`).join("")
+      || '<option value="">No subjects for this section</option>';
+  }
+
+  // -----------------------------------------------------------
+  // Mark Attendance
+  // -----------------------------------------------------------
+  document.getElementById("loadAttendanceBtn").addEventListener("click", async () => {
+    const sectionId = document.getElementById("attendanceSectionSelect").value;
+    const listEl = document.getElementById("attendanceStudentList");
+    if (!sectionId) { showToast("Please select a section first.", true); return; }
+
+    listEl.innerHTML = '<div class="notif-empty">Loading students...</div>';
+    const students = await safeJson(Session.authFetch(`${API_BASE}/api/students?section_id=${sectionId}&limit=200`));
+
+    if (!students.length) {
+      listEl.innerHTML = '<div class="empty-state">No students in this section.</div>';
+      document.getElementById("submitAttendanceBtn").style.display = "none";
+      return;
+    }
+
+    listEl.innerHTML = students.map((s) => `
+      <div class="d-flex justify-content-between align-items-center py-2" style="border-bottom:1px solid var(--border-color);" data-student-id="${s.student_id}">
+        <div class="small">${DashboardShell.escapeHtml(s.full_name)}</div>
+        <select class="form-select form-select-sm w-auto attendance-status-select">
+          <option value="present" selected>Present</option>
+          <option value="absent">Absent</option>
+          <option value="late">Late</option>
+          <option value="leave">Leave</option>
+        </select>
+      </div>
+    `).join("");
+    document.getElementById("submitAttendanceBtn").style.display = "inline-block";
+  });
+
+  document.getElementById("submitAttendanceBtn").addEventListener("click", async () => {
+    const sectionId = parseInt(document.getElementById("attendanceSectionSelect").value, 10);
+    const date = document.getElementById("attendanceDate").value;
+    const rows = document.querySelectorAll("#attendanceStudentList > div[data-student-id]");
+
+    if (!sectionId || Number.isNaN(sectionId)) { showToast("Select a section and load its students before submitting.", true); return; }
+    if (!date) { showToast("Choose a date before submitting.", true); return; }
+    if (!rows.length) { showToast("Load students for a section first.", true); return; }
+
+    const records = [...rows].map((row) => ({
+      student_id: parseInt(row.dataset.studentId, 10),
+      status: row.querySelector(".attendance-status-select").value,
+    }));
+
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/attendance/mark`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ section_id: sectionId, attendance_date: date, records }),
+      });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Failed to mark attendance"));
+      showToast(`Attendance marked for ${records.length} students.`);
+    } catch (e) {
+      showToast(e.message, true);
+    }
+  });
+
+  // -----------------------------------------------------------
+  // Assign Homework
+  // -----------------------------------------------------------
+  document.getElementById("homeworkForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      section_id: parseInt(document.getElementById("hwSection").value, 10),
+      subject_id: parseInt(document.getElementById("hwSubject").value, 10),
+      title: document.getElementById("hwTitle").value,
+      description: document.getElementById("hwDescription").value || null,
+      assigned_date: document.getElementById("hwAssignedDate").value,
+      due_date: document.getElementById("hwDueDate").value,
+    };
+    const attachmentStatusEl = document.getElementById("hwAttachmentStatus");
+    attachmentStatusEl.innerHTML = "";
+
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/homework`, {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Failed to assign homework"));
+      const created = await res.json();
+      showToast("Homework assigned successfully.");
+
+      // Second step: if a file was chosen, upload it now that we have a real homework_id
+      const fileInput = document.getElementById("hwAttachment");
+      const file = fileInput.files[0];
+      if (file) {
+        attachmentStatusEl.innerHTML = '<span style="color:var(--text-muted);">Uploading attachment...</span>';
+        try {
+          const formData = new FormData();
+          formData.append("file", file);
+          const uploadRes = await Session.authFetch(`${API_BASE}/api/uploads/homework/${created.homework_id}/attachment`, {
+            method: "POST", body: formData,
+          });
+          const uploadData = await uploadRes.json();
+          if (!uploadRes.ok) throw new Error(uploadData.detail || "Attachment upload failed");
+          showToast("Homework assigned and attachment uploaded.");
+        } catch (uploadErr) {
+          // Homework itself was created successfully — only the attachment step failed.
+          // Don't roll back or mislead the teacher into thinking the whole action failed.
+          showToast(`Homework was assigned, but the attachment failed to upload: ${uploadErr.message}`, true);
+        }
+      }
+
+      homeworkModal.hide();
+      document.getElementById("homeworkForm").reset();
+      const homework = await safeJson(Session.authFetch(`${API_BASE}/api/homework?teacher_id=${myTeacherId}`));
+      renderHomeworkTable(homework);
+      document.getElementById("statHomeworkCount").textContent = homework.length;
+    } catch (err) {
+      showToast(err.message, true);
+    }
+  });
+</script>
+</body>
+</html>

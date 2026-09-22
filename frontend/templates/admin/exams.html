@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exams & Results — Shaheen Model Girls High School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none"><path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/></g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-students" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.3 4.5 2.5 4.5 5.3"/></g>
+    <g id="icon-teachers" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5Z"/><path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></g>
+    <g id="icon-classes" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M9 9v9"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-fees" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 1.7-2.5 2-2.5.6-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-notice" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5Z"/><path d="M8 9h8M8 13h8M8 17h5"/></g>
+    <g id="icon-reports" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-plus" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></g>
+    <g id="icon-edit" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m16.5 3.5 4 4L8 20l-5 1 1-5Z"/></g>
+    <g id="icon-trash" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></g>
+    <g id="icon-backup" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></g>
+    <g id="icon-download" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g>
+    <g id="icon-upload" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9m0 0 4 4m-4-4-4 4"/><path d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/></g>
+    <g id="icon-check-circle" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.3 2.3 4.7-5"/></g>
+    <g id="icon-warning" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.01"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Admin Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+    <div class="nav-section-label">Academics</div>
+    <a href="students.html"><svg viewBox="0 0 24 24"><use href="#icon-students"/></svg>Students</a>
+    <a href="teachers.html"><svg viewBox="0 0 24 24"><use href="#icon-teachers"/></svg>Teachers</a>
+    <a href="classes.html"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg>Classes &amp; Sections</a>
+    <a href="timetable.html"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>Timetable</a>
+    <div class="nav-section-label">Operations</div>
+    <a href="attendance.html"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg>Attendance</a>
+    <a href="exams.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg>Exams &amp; Results</a>
+    <a href="fees.html"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg>Fee Management</a>
+    <a href="notices.html"><svg viewBox="0 0 24 24"><use href="#icon-notice"/></svg>Notice Board</a>
+    <a href="reports.html"><svg viewBox="0 0 24 24"><use href="#icon-reports"/></svg>Reports</a>
+    <div class="nav-section-label">System</div>
+    <a href="backup.html"><svg viewBox="0 0 24 24"><use href="#icon-backup"/></svg>Backup &amp; Restore</a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0</div>
+</aside>
+
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name">Admin</div><div class="role">admin</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2 mb-1">
+      <div><h1 class="page-title">Exams &amp; Results</h1><p class="page-subtitle">Create exams, schedule subjects, and enter results.</p></div>
+      <button class="btn-dash-primary d-inline-flex align-items-center gap-2" id="addExamBtn">
+        <svg viewBox="0 0 24 24" width="16" height="16"><use href="#icon-plus"/></svg>New Exam
+      </button>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="dash-card">
+          <div class="card-title">Exams</div>
+          <div id="examsBody"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+
+     <!-- =========================================================
+     EXAMS / RESULTS RIGHT COLUMN
+     ========================================================= -->
+
+<div class="col-lg-7">
+
+  <div class="results-column">
+
+    <!-- =====================================================
+         SUBJECT SCHEDULE
+         ===================================================== -->
+
+    <div class="dash-card schedule-card exam-card">
+
+      <div class="card-title">
+        <span>Subject Schedule</span>
+
+        <button
+          type="button"
+          class="btn-dash-primary"
+          style="padding:0.4rem 0.9rem;font-size:0.8rem;"
+          id="addScheduleBtn"
+          disabled>
+          + Add Subject
+        </button>
+      </div>
+
+      <div
+        id="scheduleHint"
+        class="text-muted small">
+        Select an exam on the left to manage its subject schedule.
+      </div>
+
+      <table
+        class="dash-table"
+        id="scheduleTable"
+        style="display:none;">
+
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Total Marks</th>
+            <th>Passing Marks</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody id="scheduleBody"></tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- =====================================================
+         ENTER RESULTS
+         ===================================================== -->
+
+    <div class="dash-card results-card exam-card">
+
+      <div class="card-title">
+        Enter Results
+      </div>
+
+      <div
+        id="resultsHint"
+        class="text-muted small">
+        Select a subject schedule above to enter results for its students.
+      </div>
+
+      <div
+        id="resultsEntryArea"
+        style="display:none;">
+
+        <!-- Student Results -->
+        <div id="resultsStudentList"></div>
+
+        <!-- Save Button -->
+        <button
+          type="button"
+          class="btn-dash-primary btn-sm"
+          id="submitResultsBtn">
+          Save Results
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     CLASS POSITION LIST
+     ========================================================= -->
+
+<div class="col-12">
+
+  <div class="dash-card position-card">
+
+    <div class="card-title">
+
+      <span>Class Position List</span>
+
+      <select
+        class="form-select form-select-sm w-auto"
+        id="positionExamSelect">
+
+      </select>
+
+    </div>
+
+    <div class="dash-table-wrapper">
+
+      <table class="dash-table">
+
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Student</th>
+            <th>Total Marks</th>
+            <th>Percentage</th>
+            <th>GPA</th>
+          </tr>
+        </thead>
+
+        <tbody id="positionBody">
+
+          <tr>
+            <td
+              colspan="5"
+              class="text-center text-muted py-4">
+              Select an exam above.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="examModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">New Exam</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="examForm"><div class="modal-body">
+    <div class="mb-3"><label class="form-label small fw-semibold">Exam Name</label><input type="text" class="form-control" id="examName" required placeholder="e.g. Mid Term 2026"></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Class</label><select class="form-select" id="examClassSelect" required></select></div>
+    <div class="row g-2">
+      <div class="col-6"><label class="form-label small fw-semibold">Start Date</label><input type="date" class="form-control" id="examStartDate"></div>
+      <div class="col-6"><label class="form-label small fw-semibold">End Date</label><input type="date" class="form-control" id="examEndDate"></div>
+    </div>
+    <div class="mb-3 mt-2"><label class="form-label small fw-semibold">Academic Year</label><input type="text" class="form-control" id="examYear" placeholder="e.g. 2026-2027"></div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Create Exam</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="scheduleModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Add Subject to Exam</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <form id="scheduleForm"><div class="modal-body">
+    <div class="mb-3"><label class="form-label small fw-semibold">Subject</label><select class="form-select" id="scheduleSubjectSelect" required></select></div>
+    <div class="mb-3"><label class="form-label small fw-semibold">Exam Date</label><input type="date" class="form-control" id="scheduleExamDate"></div>
+    <div class="row g-2">
+      <div class="col-6"><label class="form-label small fw-semibold">Total Marks</label><input type="number" class="form-control" id="scheduleTotalMarks" value="100"></div>
+      <div class="col-6"><label class="form-label small fw-semibold">Passing Marks</label><input type="number" class="form-control" id="schedulePassingMarks" value="40"></div>
+    </div>
+  </div><div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn-dash-primary">Add</button>
+  </div></form>
+</div></div></div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content dash-modal">
+  <div class="modal-header"><h5 class="modal-title">Confirm Delete</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+  <div class="modal-body"><p id="deleteConfirmText">Are you sure?</p></div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-danger btn-sm" id="confirmDeleteBtn">Delete</button>
+  </div>
+</div></div></div>
+
+<div class="toast-custom-dash" id="dashToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" ? "http://localhost:8000" : "";
+  let examsCache = [], classesCache = [], subjectsCache = [], studentsCache = [], sectionsCache = [];
+  let selectedExamId = null, selectedScheduleId = null, selectedScheduleTotalMarks = 100;
+  let deleteAction = null;
+  const examModal = new bootstrap.Modal(document.getElementById("examModal"));
+  const scheduleModal = new bootstrap.Modal(document.getElementById("scheduleModal"));
+  const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+
+  if (Session.bootstrap({ requireRole: ["admin", "super_admin"] })) {
+    DashboardShell.init({ apiBase: API_BASE });
+    loadAll();
+  }
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById("dashToast");
+    toast.textContent = message;
+    toast.classList.toggle("error", isError);
+    toast.classList.add("show");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+  async function safeJson(promise, fallback = []) {
+    try { const res = await promise; return res.ok ? await res.json() : fallback; } catch (e) { return fallback; }
+  }
+  function classLabel(id) { const c = classesCache.find((x) => x.class_id === id); return c ? c.class_name : "#" + id; }
+  function subjectLabel(id) { const s = subjectsCache.find((x) => x.subject_id === id); return s ? s.subject_name : "#" + id; }
+
+  async function loadAll() {
+    classesCache = await safeJson(Session.authFetch(`${API_BASE}/api/academic/classes`));
+    sectionsCache = await safeJson(Session.authFetch(`${API_BASE}/api/academic/sections`));
+    subjectsCache = await safeJson(Session.authFetch(`${API_BASE}/api/academic/subjects`));
+    studentsCache = await safeJson(Session.authFetch(`${API_BASE}/api/students?limit=1000`));
+    examsCache = await safeJson(Session.authFetch(`${API_BASE}/api/exams`));
+    document.getElementById("examClassSelect").innerHTML = classesCache.map((c) => `<option value="${c.class_id}">${DashboardShell.escapeHtml(c.class_name)}</option>`).join("");
+    document.getElementById("positionExamSelect").innerHTML = '<option value="">Select exam...</option>' + examsCache.map((e) => `<option value="${e.exam_id}">${DashboardShell.escapeHtml(e.exam_name)}</option>`).join("");
+    renderExams();
+  }
+
+  function renderExams() {
+    const el = document.getElementById("examsBody");
+    if (!examsCache.length) { el.innerHTML = '<div class="empty-state">No exams created yet.</div>'; return; }
+    el.innerHTML = examsCache.map((e) => `
+      <div class="notice-item" style="cursor:pointer; ${selectedExamId === e.exam_id ? 'background:var(--bg-app);border-radius:8px;' : ''}" onclick="selectExam(${e.exam_id})">
+        <div class="dot" style="background: var(--sky);"></div>
+        <div class="flex-grow-1">
+          <div class="title">${DashboardShell.escapeHtml(e.exam_name)} <span class="text-muted small">(${classLabel(e.class_id)})</span></div>
+          <div class="date">${e.start_date || "TBA"} &ndash; ${e.end_date || "TBA"}</div>
+        </div>
+        <button class="icon-btn" style="width:30px;height:30px;" onclick="event.stopPropagation(); deleteExam(${e.exam_id}, '${DashboardShell.escapeHtml(e.exam_name)}')"><svg viewBox="0 0 24 24" width="14" height="14"><use href="#icon-trash"/></svg></button>
+      </div>
+    `).join("");
+  }
+
+  document.getElementById("addExamBtn").addEventListener("click", () => { document.getElementById("examForm").reset(); examModal.show(); });
+  document.getElementById("examForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      exam_name: document.getElementById("examName").value,
+      class_id: parseInt(document.getElementById("examClassSelect").value, 10),
+      start_date: document.getElementById("examStartDate").value || null,
+      end_date: document.getElementById("examEndDate").value || null,
+      academic_year: document.getElementById("examYear").value || null,
+    };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/exams`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Save failed"));
+      showToast("Exam created."); examModal.hide(); await loadAll();
+    } catch (err) { showToast(err.message, true); }
+  });
+
+  window.deleteExam = (id, name) => {
+    deleteAction = async () => {
+      const res = await Session.authFetch(`${API_BASE}/api/exams/${id}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 204) throw new Error(DashboardShell.errorMessage(await res.json(), "Delete failed"));
+      if (selectedExamId === id) { selectedExamId = null; document.getElementById("scheduleTable").style.display = "none"; document.getElementById("scheduleHint").style.display = "block"; }
+    };
+    document.getElementById("deleteConfirmText").textContent = `Delete exam "${name}" and all its schedules/results?`;
+    deleteModal.show();
+  };
+
+  window.selectExam = async (examId) => {
+    selectedExamId = examId;
+    document.getElementById("addScheduleBtn").disabled = false;
+    renderExams();
+    await loadSchedule(examId);
+  };
+
+  async function loadSchedule(examId) {
+    const schedules = await safeJson(Session.authFetch(`${API_BASE}/api/exams/${examId}/schedule`));
+    document.getElementById("scheduleHint").style.display = "none";
+    document.getElementById("scheduleTable").style.display = "table";
+    const tbody = document.getElementById("scheduleBody");
+    tbody.innerHTML = schedules.length ? schedules.map((s) => `
+      <tr style="cursor:pointer;" onclick="selectSchedule(${s.schedule_id}, ${s.total_marks})">
+        <td>${subjectLabel(s.subject_id)}</td><td>${s.exam_date || "TBA"}</td><td>${s.total_marks}</td><td>${s.passing_marks}</td>
+        <td class="text-end"><button class="icon-btn" style="width:30px;height:30px;" onclick="event.stopPropagation(); deleteSchedule(${s.schedule_id})"><svg viewBox="0 0 24 24" width="14" height="14"><use href="#icon-trash"/></svg></button></td>
+      </tr>`).join("") : '<tr><td colspan="5" class="text-center text-muted py-3">No subjects scheduled yet.</td></tr>';
+  }
+
+  document.getElementById("addScheduleBtn").addEventListener("click", () => {
+    document.getElementById("scheduleForm").reset();
+    document.getElementById("scheduleSubjectSelect").innerHTML = subjectsCache.map((s) => `<option value="${s.subject_id}">${DashboardShell.escapeHtml(s.subject_name)}</option>`).join("");
+    scheduleModal.show();
+  });
+  document.getElementById("scheduleForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const payload = {
+      subject_id: parseInt(document.getElementById("scheduleSubjectSelect").value, 10),
+      exam_date: document.getElementById("scheduleExamDate").value || null,
+      total_marks: parseInt(document.getElementById("scheduleTotalMarks").value, 10) || 100,
+      passing_marks: parseInt(document.getElementById("schedulePassingMarks").value, 10) || 40,
+    };
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/exams/${selectedExamId}/schedule`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Save failed"));
+      showToast("Subject added to exam."); scheduleModal.hide(); await loadSchedule(selectedExamId);
+    } catch (err) { showToast(err.message, true); }
+  });
+
+  window.deleteSchedule = (id) => {
+    deleteAction = async () => {
+      const res = await Session.authFetch(`${API_BASE}/api/exams/schedule/${id}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 204) throw new Error(DashboardShell.errorMessage(await res.json(), "Delete failed"));
+      await loadSchedule(selectedExamId);
+    };
+    document.getElementById("deleteConfirmText").textContent = "Remove this subject from the exam schedule?";
+    deleteModal.show();
+  };
+
+  window.selectSchedule = async (scheduleId, totalMarks) => {
+    selectedScheduleId = scheduleId;
+    selectedScheduleTotalMarks = totalMarks;
+    document.getElementById("resultsHint").style.display = "none";
+    document.getElementById("resultsEntryArea").style.display = "block";
+
+    const exam = examsCache.find((e) => e.exam_id === selectedExamId);
+    // Only show students whose section actually belongs to this exam's class —
+    // entering results for students outside the exam's class silently corrupted
+    // the position list (their results were saved but never counted, since
+    // position-list correctly scopes by class_id). Scope this the same way.
+    const sectionIdsInClass = new Set(sectionsCache.filter((s) => s.class_id === exam.class_id).map((s) => s.section_id));
+    const classStudents = studentsCache.filter((s) => sectionIdsInClass.has(s.section_id));
+    const existingResults = await safeJson(Session.authFetch(`${API_BASE}/api/results?schedule_id=${scheduleId}`));
+    const resultMap = Object.fromEntries(existingResults.map((r) => [r.student_id, r.marks_obtained]));
+
+    document.getElementById("resultsStudentList").innerHTML = classStudents.map((s) => `
+      <div class="d-flex justify-content-between align-items-center py-2" style="border-bottom:1px solid var(--border-color);" data-student-id="${s.student_id}">
+        <div class="small">${DashboardShell.escapeHtml(s.full_name)} <span class="text-muted">(${s.registration_no})</span></div>
+        <input type="number" class="form-control form-control-sm w-auto marks-input" style="width:90px;" min="0" max="${totalMarks}"
+               value="${resultMap[s.student_id] !== undefined ? resultMap[s.student_id] : ''}" placeholder="/ ${totalMarks}">
+      </div>
+    `).join("");
+  };
+
+  document.getElementById("submitResultsBtn").addEventListener("click", async () => {
+    const rows = document.querySelectorAll("#resultsStudentList > div[data-student-id]");
+    const results = [...rows]
+      .map((row) => ({ student_id: parseInt(row.dataset.studentId, 10), marks_obtained: row.querySelector(".marks-input").value }))
+      .filter((r) => r.marks_obtained !== "")
+      .map((r) => ({ student_id: r.student_id, marks_obtained: parseFloat(r.marks_obtained) }));
+
+    if (!results.length) { showToast("Enter at least one mark before saving.", true); return; }
+     
+    <!---->
+ 
+    
+
+    <!---->
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/results`, {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ schedule_id: selectedScheduleId, results }),
+      });
+      if (!res.ok) throw new Error(DashboardShell.errorMessage(await res.json(), "Saving results failed"));
+      showToast(`Saved results for ${results.length} students.`);
+    } catch (e) { showToast(e.message, true); }
+  });
+
+  document.getElementById("positionExamSelect").addEventListener("change", async (e) => {
+    const examId = e.target.value;
+    const tbody = document.getElementById("positionBody");
+    if (!examId) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">Select an exam above.</td></tr>'; return; }
+    tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">Loading...</td></tr>';
+    const list = await safeJson(Session.authFetch(`${API_BASE}/api/results/position-list/${examId}`));
+    if (!list.length) { tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No results entered for this exam yet.</td></tr>'; return; }
+    tbody.innerHTML = list.map((r) => `
+      <tr><td>${r.position}</td><td>${DashboardShell.escapeHtml(r.student_name)} <span class="text-muted small">(${r.registration_no})</span></td>
+      <td>${r.total_marks_obtained}</td><td>${r.overall_percentage}%</td><td>${r.gpa}</td></tr>
+    `).join("");
+  });
+
+  document.getElementById("confirmDeleteBtn").addEventListener("click", async () => {
+    try { await deleteAction(); showToast("Deleted successfully."); deleteModal.hide(); await loadAll(); }
+    catch (e) { showToast(e.message, true); }
+  });
+
+</script>
+</body>
+</html>

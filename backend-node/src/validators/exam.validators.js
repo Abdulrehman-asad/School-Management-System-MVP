@@ -1,0 +1,7 @@
+function requiredString(v, field, max=255){ if(typeof v!=='string'||!v.trim()||v.length>max){const e=new Error(`${field} is invalid`);e.status=422;throw e;} return v.trim(); }
+function int(v,field){const n=Number(v);if(!Number.isInteger(n)){const e=new Error(`${field} must be an integer`);e.status=422;throw e;}return n;}
+function examCreate(b){return {exam_name:requiredString(b.exam_name,'exam_name',100),class_id:int(b.class_id,'class_id'),start_date:b.start_date??null,end_date:b.end_date??null,academic_year:b.academic_year??null};}
+function examUpdate(b){const o={};for(const f of ['exam_name','start_date','end_date','academic_year'])if(Object.prototype.hasOwnProperty.call(b,f))o[f]=f==='exam_name'?requiredString(b[f],f,100):b[f];return o;}
+function scheduleCreate(b){const total=b.total_marks===undefined?100:int(b.total_marks,'total_marks');const pass=b.passing_marks===undefined?40:int(b.passing_marks,'passing_marks');return {subject_id:int(b.subject_id,'subject_id'),exam_date:b.exam_date??null,start_time:b.start_time??null,end_time:b.end_time??null,total_marks:total,passing_marks:pass};}
+function scheduleUpdate(b){const o={};for(const f of ['exam_date','start_time','end_time'])if(Object.prototype.hasOwnProperty.call(b,f))o[f]=b[f];for(const f of ['total_marks','passing_marks'])if(Object.prototype.hasOwnProperty.call(b,f))o[f]=int(b[f],f);return o;}
+module.exports={examCreate,examUpdate,scheduleCreate,scheduleUpdate};

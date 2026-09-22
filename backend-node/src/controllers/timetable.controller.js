@@ -1,0 +1,8 @@
+const s=require('../services/timetable.service');const v=require('../validators/timetable.validators');
+const create=async(req,res,next)=>{try{res.status(201).json(await s.create(v.create(req.body)))}catch(e){next(e)}};
+const list=async(req,res,next)=>{try{const f={};if(req.query.section_id!==undefined)f.section_id=Number(req.query.section_id);if(req.query.teacher_id!==undefined)f.teacher_id=Number(req.query.teacher_id);if(req.query.day_of_week)f.day_of_week=req.query.day_of_week;res.json(await s.list(f))}catch(e){next(e)}};
+const mySchedule=async(req,res,next)=>{try{if(req.user.role_name==='teacher'){const id=await s.teacherForUser(req.user.user_id);if(!id)throw Object.assign(new Error('Teacher not found'),{status:404});return res.json(await s.list({teacher_id:id}))}if(req.user.role_name==='student'){const st=await s.studentForUser(req.user.user_id);if(!st)throw Object.assign(new Error('Student not found'),{status:404});return res.json(await s.list({section_id:st.section_id}))}throw Object.assign(new Error('This endpoint is for teachers and students; use /api/timetable with filters instead'),{status:400})}catch(e){next(e)}};
+const get=async(req,res,next)=>{try{const x=await s.get(req.params.timetable_id);if(!x)throw Object.assign(new Error('Timetable entry not found'),{status:404});res.json(x)}catch(e){next(e)}};
+const update=async(req,res,next)=>{try{res.json(await s.update(req.params.timetable_id,v.update(req.body)))}catch(e){next(e)}};
+const del=async(req,res,next)=>{try{await s.remove(req.params.timetable_id);res.status(204).send()}catch(e){next(e)}};
+module.exports={create,list,mySchedule,get,update,del};

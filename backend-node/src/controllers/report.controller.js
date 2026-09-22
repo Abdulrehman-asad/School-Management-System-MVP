@@ -1,0 +1,8 @@
+const s=require('../services/report.service');const {buildExcel,buildPdf}=require('../utils/report-export');
+async function send(req,res,next,fn,title,base,subtitle=''){try{const format=req.query.format||'excel';if(!['excel','pdf'].includes(format))return res.status(400).json({detail:"format must be 'excel' or 'pdf'"});const data=await fn();if(format==='excel'){const b=await buildExcel(title,data.headers,data.rows);res.type('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet').set('Content-Disposition',`attachment; filename="${base}.xlsx"`).send(b);}else{const b=await buildPdf(title,data.headers,data.rows,subtitle);res.type('application/pdf').set('Content-Disposition',`attachment; filename="${base}.pdf"`).send(b);}}catch(e){next(e)}}
+const attendance=(req,res,next)=>send(req,res,next,()=>s.attendance({sectionId:req.query.section_id,dateFrom:req.query.date_from,dateTo:req.query.date_to}),'Attendance Report','attendance_report',`Section ID ${req.query.section_id} | ${req.query.date_from} to ${req.query.date_to||req.query.date_from}`);
+const results=(req,res,next)=>send(req,res,next,()=>s.results(req.query.exam_id),'Result Report','result_report',`Exam ID ${req.query.exam_id}`);
+const students=(req,res,next)=>send(req,res,next,()=>s.students({sectionId:req.query.section_id,status:req.query.status}),'Student Report','student_report');
+const teachers=(req,res,next)=>send(req,res,next,()=>s.teachers({status:req.query.status}),'Teacher Report','teacher_report');
+const fees=(req,res,next)=>send(req,res,next,()=>s.fees({monthYear:req.query.month_year,status:req.query.status}),'Fee Report','fee_report',req.query.month_year||'All periods');
+module.exports={attendance,results,students,teachers,fees};

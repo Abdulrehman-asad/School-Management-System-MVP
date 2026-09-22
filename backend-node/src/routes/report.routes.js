@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/report.controller'),{getCurrentUser,requireRoles}=require('../middleware/auth'),admin=requireRoles('admin','super_admin');
+r.get('/attendance',getCurrentUser,admin,c.attendance);r.get('/results',getCurrentUser,admin,c.results);r.get('/students',getCurrentUser,admin,c.students);r.get('/teachers',getCurrentUser,admin,c.teachers);r.get('/fees',getCurrentUser,admin,c.fees);module.exports=r;

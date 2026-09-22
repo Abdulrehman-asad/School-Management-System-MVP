@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Shaheen Model Girls High School</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none">
+      <path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/>
+    </g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-students" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2c2.4.3 4.5 2.5 4.5 5.3"/></g>
+    <g id="icon-teachers" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9 12 4l10 5-10 5-10-5Z"/><path d="M6 11.5V17c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></g>
+    <g id="icon-classes" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="1.5"/><path d="M3 9h18M9 9v9"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-fees" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 1.7-2.5 2-2.5.6-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-notice" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5Z"/><path d="M8 9h8M8 13h8M8 17h5"/></g>
+    <g id="icon-reports" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-inbox" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4l2 3h4l2-3h4"/><path d="M4 12 5.5 5h13L20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/></g>
+    <g id="icon-backup" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<!-- ============================================================
+     Sidebar
+     ============================================================ -->
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Admin Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+    <div class="nav-section-label">Academics</div>
+    <a href="students.html"><svg viewBox="0 0 24 24"><use href="#icon-students"/></svg>Students</a>
+    <a href="teachers.html"><svg viewBox="0 0 24 24"><use href="#icon-teachers"/></svg>Teachers</a>
+    <a href="classes.html"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg>Classes &amp; Sections</a>
+    <a href="timetable.html"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>Timetable</a>
+    <div class="nav-section-label">Operations</div>
+    <a href="attendance.html"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg>Attendance</a>
+    <a href="exams.html"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg>Exams &amp; Results</a>
+    <a href="fees.html"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg>Fee Management</a>
+    <a href="notices.html"><svg viewBox="0 0 24 24"><use href="#icon-notice"/></svg>Notice Board</a>
+    <a href="reports.html"><svg viewBox="0 0 24 24"><use href="#icon-reports"/></svg>Reports</a>
+    <div class="nav-section-label">System</div>
+    <a href="backup.html"><svg viewBox="0 0 24 24"><use href="#icon-backup"/></svg>Backup &amp; Restore</a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0 &middot; Part 7</div>
+</aside>
+
+<!-- ============================================================
+     Main
+     ============================================================ -->
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" id="globalSearch" placeholder="Search students, teachers, classes...">
+    </div>
+
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">A</div>
+          <div class="meta"><div class="name">Admin</div><div class="role">admin</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <h1 class="page-title">Dashboard Overview</h1>
+    <p class="page-subtitle">Welcome back — here's what's happening at Shaheen today.</p>
+
+    <!-- Search results dropdown (client-side, filters students/teachers already loaded) -->
+    <div id="searchResults" class="dash-card mb-4" style="display:none;"></div>
+
+    <!-- Stat cards -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--sky-tint); color: var(--sky);"><svg viewBox="0 0 24 24"><use href="#icon-students"/></svg></div>
+          <div><div class="value" id="statStudents">—</div><div class="label">Total Students</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--gold-soft); color: #8a6317;"><svg viewBox="0 0 24 24"><use href="#icon-teachers"/></svg></div>
+          <div><div class="value" id="statTeachers">—</div><div class="label">Total Teachers</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #e3f3ea; color: #1f6b46;"><svg viewBox="0 0 24 24"><use href="#icon-classes"/></svg></div>
+          <div><div class="value" id="statClasses">—</div><div class="label">Total Classes</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #fdecec; color: #9c2b2b;"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statPendingFees">—</div><div class="label">Pending Fees</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <!-- Fee collection chart -->
+      <div class="col-lg-7">
+        <div class="dash-card">
+          <div class="card-title">Fee Collection Overview</div>
+          <div class="chart-wrap"><canvas id="feeChart"></canvas></div>
+        </div>
+      </div>
+      <!-- School notices -->
+      <div class="col-lg-5">
+        <div class="dash-card">
+          <div class="card-title">School Notices</div>
+          <div id="noticesList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Latest admissions -->
+      <div class="col-lg-7">
+        <div class="dash-card">
+          <div class="card-title">Latest Admissions</div>
+          <div style="overflow-x:auto;">
+            <table class="dash-table">
+              <thead><tr><th>Reg. No</th><th>Name</th><th>Status</th><th>Admitted</th></tr></thead>
+              <tbody id="admissionsBody"><tr><td colspan="4" class="text-center text-muted py-4">Loading...</td></tr></tbody>
+            </table>
+          </div>
+          <div class="pagination-row" id="admissionsPagination"></div>
+        </div>
+      </div>
+      <!-- Upcoming exams -->
+      <div class="col-lg-5">
+        <div class="dash-card">
+          <div class="card-title">Upcoming Exams</div>
+          <div id="examsList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000" : "";
+
+  if (Session.bootstrap({ requireRole: ["admin", "super_admin"] })) {
+    DashboardShell.init({ apiBase: API_BASE });
+    loadDashboardData();
+  }
+
+  let allStudentsCache = [];
+  let allTeachersCache = [];
+
+  async function loadDashboardData() {
+    await Promise.all([
+      loadStatCards(),
+      loadFeeChart(),
+      loadNotices(),
+      loadAdmissions(),
+      loadExams(),
+    ]);
+  }
+
+  async function safeJson(promise, fallback = []) {
+    try {
+      const res = await promise;
+      if (!res.ok) return fallback;
+      return await res.json();
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  async function loadStatCards() {
+    const [students, teachers, classes, feeSummary] = await Promise.all([
+      safeJson(Session.authFetch(`${API_BASE}/api/students?limit=1000`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/teachers?limit=1000`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/academic/classes`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/fees/challans/summary`), null),
+    ]);
+
+    allStudentsCache = students;
+    allTeachersCache = teachers;
+
+    document.getElementById("statStudents").textContent = students.length.toLocaleString();
+    document.getElementById("statTeachers").textContent = teachers.length.toLocaleString();
+    document.getElementById("statClasses").textContent = classes.length.toLocaleString();
+    document.getElementById("statPendingFees").textContent = feeSummary
+      ? `Rs. ${Number(feeSummary.total_amount_pending).toLocaleString()}`
+      : "—";
+  }
+
+  async function loadFeeChart() {
+    const summary = await safeJson(Session.authFetch(`${API_BASE}/api/fees/challans/summary`), null);
+    const ctx = document.getElementById("feeChart");
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+    const data = summary
+      ? [summary.paid_count, summary.unpaid_count, summary.overdue_count]
+      : [0, 0, 0];
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["Paid", "Unpaid", "Overdue"],
+        datasets: [{ data, backgroundColor: ["#2E6B57", "#C7962C", "#b23b3b"], borderWidth: 0 }],
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: "bottom", labels: { color: isDark ? "#ECF1FA" : "#17213A" } } },
+      },
+    });
+  }
+
+  async function loadNotices() {
+    const notices = await safeJson(Session.authFetch(`${API_BASE}/api/notices?limit=6`));
+    const el = document.getElementById("noticesList");
+    if (!notices.length) {
+      el.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24"><use href="#icon-notice"/></svg><div>No notices posted yet.</div></div>';
+      return;
+    }
+    el.innerHTML = notices.map((n) => `
+      <div class="notice-item">
+        <div class="dot"></div>
+        <div><div class="title">${DashboardShell.escapeHtml(n.title)}</div><div class="date">${n.publish_date}</div></div>
+      </div>
+    `).join("");
+  }
+
+  async function loadAdmissions() {
+    const students = await safeJson(Session.authFetch(`${API_BASE}/api/students?limit=1000`));
+    const sorted = [...students].sort((a, b) => (b.admission_date || "").localeCompare(a.admission_date || ""));
+    const tbody = document.getElementById("admissionsBody");
+    const paginationEl = document.getElementById("admissionsPagination");
+
+    if (!sorted.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center text-muted py-4">No students enrolled yet.</td></tr>';
+      paginationEl.innerHTML = "";
+      return;
+    }
+
+    DashboardShell.Paginator(sorted, 6, (pageRows) => {
+      tbody.innerHTML = pageRows.map((s) => `
+        <tr>
+          <td>${DashboardShell.escapeHtml(s.registration_no)}</td>
+          <td>${DashboardShell.escapeHtml(s.full_name)}</td>
+          <td><span class="status-pill ${s.status}">${s.status}</span></td>
+          <td>${s.admission_date || "—"}</td>
+        </tr>
+      `).join("");
+    }, paginationEl);
+  }
+
+  async function loadExams() {
+    const exams = await safeJson(Session.authFetch(`${API_BASE}/api/exams?limit=5`));
+    const el = document.getElementById("examsList");
+    const upcoming = exams.filter((e) => !e.end_date || e.end_date >= new Date().toISOString().slice(0, 10));
+
+    if (!upcoming.length) {
+      el.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg><div>No upcoming exams scheduled.</div></div>';
+      return;
+    }
+    el.innerHTML = upcoming.map((e) => `
+      <div class="notice-item">
+        <div class="dot" style="background: var(--sky);"></div>
+        <div><div class="title">${DashboardShell.escapeHtml(e.exam_name)}</div><div class="date">${e.start_date || "TBA"} &ndash; ${e.end_date || "TBA"}</div></div>
+      </div>
+    `).join("");
+  }
+
+  // -----------------------------------------------------------
+  // Global search — filters the already-loaded students/teachers
+  // caches client-side (good enough for a few hundred records;
+  // a production build with thousands of records would hit a
+  // dedicated backend search endpoint instead).
+  // -----------------------------------------------------------
+  const searchInput = document.getElementById("globalSearch");
+  const searchResultsEl = document.getElementById("searchResults");
+  searchInput?.addEventListener("input", () => {
+    const q = searchInput.value.trim().toLowerCase();
+    if (!q) { searchResultsEl.style.display = "none"; return; }
+
+    const studentMatches = allStudentsCache.filter((s) => s.full_name.toLowerCase().includes(q) || s.registration_no.toLowerCase().includes(q)).slice(0, 5);
+    const teacherMatches = allTeachersCache.filter((t) => t.full_name.toLowerCase().includes(q)).slice(0, 5);
+
+    if (!studentMatches.length && !teacherMatches.length) {
+      searchResultsEl.style.display = "block";
+      searchResultsEl.innerHTML = '<div class="empty-state">No matches found.</div>';
+      return;
+    }
+
+    let html = '<div class="card-title">Search Results</div>';
+    if (studentMatches.length) {
+      html += '<div class="text-muted small fw-semibold mb-2">Students</div>';
+      html += studentMatches.map((s) => `<div class="notice-item"><div class="dot"></div><div><div class="title">${DashboardShell.escapeHtml(s.full_name)}</div><div class="date">${s.registration_no}</div></div></div>`).join("");
+    }
+    if (teacherMatches.length) {
+      html += '<div class="text-muted small fw-semibold mb-2 mt-2">Teachers</div>';
+      html += teacherMatches.map((t) => `<div class="notice-item"><div class="dot" style="background:var(--sky);"></div><div><div class="title">${DashboardShell.escapeHtml(t.full_name)}</div><div class="date">${t.email || ""}</div></div></div>`).join("");
+    }
+    searchResultsEl.innerHTML = html;
+    searchResultsEl.style.display = "block";
+  });
+</script>
+</body>
+</html>

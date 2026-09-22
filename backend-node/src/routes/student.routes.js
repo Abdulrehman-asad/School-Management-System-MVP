@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/student.controller');const{getCurrentUser,requireRoles}=require('../middleware/auth');const admin=requireRoles('admin','super_admin');const staff=requireRoles('admin','super_admin','teacher');
+r.post('',getCurrentUser,admin,c.create);r.get('',getCurrentUser,staff,c.list);r.get('/me',getCurrentUser,c.me);r.get('/:student_id',getCurrentUser,c.get);r.put('/:student_id',getCurrentUser,admin,c.update);r.delete('/:student_id',getCurrentUser,admin,c.del);module.exports=r;

@@ -1,0 +1,27 @@
+# Node.js
+node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+backend-node/uploads/*
+!backend-node/uploads/.gitkeep
+
+# Development emails
+uploads/dev_emails/
+
+# Logs
+*.log
+npm-debug.log*

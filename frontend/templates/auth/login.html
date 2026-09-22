@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Shaheen Model Girls High School</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/auth.css" rel="stylesheet">
+</head>
+
+<body class="auth-page">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none">
+      <path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/>
+    </g>
+    <g id="icon-eye-open" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3.8-7 10-7 10 7 10 7-3.8 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+    </g>
+    <g id="icon-eye-off" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 3l18 18"/><path d="M10.6 5.2A10.8 10.8 0 0 1 12 5c6.2 0 10 7 10 7a17.6 17.6 0 0 1-4 4.6M6.6 6.6A17.4 17.4 0 0 0 2 12s3.8 7 10 7c1.5 0 2.9-.3 4.1-.8"/><path d="M9.9 10a3 3 0 0 0 4.1 4.1"/>
+    </g>
+    <g id="icon-arrow-left" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 12H5"/><path d="m11 18-6-6 6-6"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="auth-card">
+  <a href="../public/index.html" class="text-decoration-none">
+    <div class="auth-brand">
+      <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+      <span data-i18n="brand">Shaheen Model Girls High School</span>
+    </div>
+  </a>
+
+  <h1 class="h4 auth-title" data-i18n="title">Welcome back</h1>
+  <p class="auth-subtitle" data-i18n="subtitle">Sign in to your dashboard</p>
+
+  <div class="role-tabs" role="tablist">
+    <button type="button" class="active" data-role="admin" data-i18n="role.admin">Admin</button>
+    <button type="button" data-role="teacher" data-i18n="role.teacher">Teacher</button>
+    <button type="button" data-role="student" data-i18n="role.student">Student</button>
+  </div>
+
+  <div class="auth-alert error" id="loginError"></div>
+  <div class="auth-alert success" id="loginSuccess"></div>
+
+  <form id="loginForm" class="auth-form">
+    <div class="mb-3">
+      <label class="form-label small fw-semibold" data-i18n="field.username">Username or Email</label>
+      <input type="text" class="form-control" id="username" required autocomplete="username">
+    </div>
+
+    <div class="mb-2">
+      <label class="form-label small fw-semibold" data-i18n="field.password">Password</label>
+      <div class="password-field">
+        <input type="password" class="form-control" id="password" required autocomplete="current-password">
+        <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
+          <svg id="eyeIcon" viewBox="0 0 24 24"><use href="#icon-eye-open"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="auth-meta-row">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="rememberMe">
+        <label class="form-check-label" for="rememberMe" data-i18n="field.remember">Remember me</label>
+      </div>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#forgotModal" data-i18n="field.forgot">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn btn-gold w-100" id="loginBtn" data-i18n="submit">
+      <span data-i18n="submit">Sign In</span>
+    </button>
+  </form>
+
+  <div class="auth-footer-link">
+    <a href="../public/index.html" class="d-inline-flex align-items-center gap-1">
+      <svg width="15" height="15" viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
+      <span data-i18n="back">Back to homepage</span>
+    </a>
+  </div>
+
+  <div class="text-center mt-3">
+    <div class="lang-switch d-inline-flex">
+      <button type="button" data-lang="en" class="active">EN</button>
+      <button type="button" data-lang="ur">اردو</button>
+    </div>
+  </div>
+</div>
+
+<!-- Forgot password modal -->
+<div class="modal fade" id="forgotModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 20px; border: none;">
+      <div class="modal-header" style="border-bottom: 1px solid var(--line);">
+        <h5 class="modal-title" data-i18n="forgot.title">Reset your password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="small" style="color: rgba(23,33,58,0.65);" data-i18n="forgot.text">Enter the email associated with your account and we'll send a reset link.</p>
+        <div class="auth-alert success" id="forgotSuccess"></div>
+        <form id="forgotForm">
+          <div class="mb-3">
+            <label class="form-label small fw-semibold" data-i18n="field.email">Email Address</label>
+            <input type="email" class="form-control" id="forgotEmail" required>
+          </div>
+          <button type="submit" class="btn btn-gold w-100" data-i18n="forgot.submit">Send Reset Link</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script>
+  // ----------------------------------------------------------------
+  // Config: point this at wherever the FastAPI backend is deployed.
+  // Defaults to localhost:8000 for local development.
+  // ----------------------------------------------------------------
+  const API_BASE_URL = "http://127.0.0.1:8000";
+
+  // ----------------------------------------------------------------
+  // Minimal i18n for this page only (separate from the public site's
+  // larger dictionary in static/js/i18n.js, since login has its own,
+  // much smaller, set of strings).
+  // ----------------------------------------------------------------
+  const loginTranslations = {
+    en: {
+      brand: "Shaheen Model Girls High School",
+      title: "Welcome back",
+      subtitle: "Sign in to your dashboard",
+      "role.admin": "Admin",
+      "role.teacher": "Teacher",
+      "role.student": "Student",
+      "field.username": "Username or Email",
+      "field.password": "Password",
+      "field.remember": "Remember me",
+      "field.forgot": "Forgot password?",
+      "field.email": "Email Address",
+      submit: "Sign In",
+      back: "Back to homepage",
+      "forgot.title": "Reset your password",
+      "forgot.text": "Enter the email associated with your account and we'll send a reset link.",
+      "forgot.submit": "Send Reset Link",
+    },
+    ur: {
+      brand: "شاہین ماڈل گرلز ہائی اسکول",
+      title: "خوش آمدید",
+      subtitle: "اپنے ڈیش بورڈ میں لاگ ان کریں",
+      "role.admin": "ایڈمن",
+      "role.teacher": "استاد",
+      "role.student": "طالبہ",
+      "field.username": "یوزر نیم یا ای میل",
+      "field.password": "پاس ورڈ",
+      "field.remember": "مجھے یاد رکھیں",
+      "field.forgot": "پاس ورڈ بھول گئے؟",
+      "field.email": "ای میل ایڈریس",
+      submit: "لاگ ان کریں",
+      back: "ہوم پیج پر واپس جائیں",
+      "forgot.title": "پاس ورڈ دوبارہ ترتیب دیں",
+      "forgot.text": "اپنے اکاؤنٹ سے منسلک ای میل درج کریں، ہم آپ کو ری سیٹ لنک بھیج دیں گے۔",
+      "forgot.submit": "ری سیٹ لنک بھیجیں",
+    },
+  };
+
+  function applyLoginTranslations(lang) {
+    const dict = loginTranslations[lang] || loginTranslations.en;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.documentElement.lang = lang === "ur" ? "ur" : "en";
+    document.documentElement.dir = lang === "ur" ? "rtl" : "ltr";
+    document.querySelectorAll(".lang-switch button").forEach((btn) => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+  }
+
+  document.querySelectorAll(".lang-switch [data-lang]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLoginTranslations(btn.getAttribute("data-lang")));
+  });
+
+  // ----------------------------------------------------------------
+  // Role tabs (purely cosmetic here — the backend's /api/auth/login
+  // endpoint determines the actual role from the account itself;
+  // these tabs just set expectations for which dashboard to expect)
+  // ----------------------------------------------------------------
+  let selectedRole = "admin";
+  document.querySelectorAll(".role-tabs button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".role-tabs button").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedRole = btn.getAttribute("data-role");
+    });
+  });
+
+  // ----------------------------------------------------------------
+  // Password visibility toggle
+  // ----------------------------------------------------------------
+  const passwordInput = document.getElementById("password");
+  const toggleBtn = document.getElementById("togglePassword");
+  const eyeIcon = document.getElementById("eyeIcon");
+  toggleBtn.addEventListener("click", () => {
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    eyeIcon.innerHTML = isPassword
+      ? '<use href="#icon-eye-off"/>'
+      : '<use href="#icon-eye-open"/>';
+  });
+
+  // ----------------------------------------------------------------
+  // Login submit — calls the real backend from Part 1
+  // (POST /api/auth/login -> { access_token, refresh_token, role, ... })
+  //
+  // Token storage: kept in memory only for this static demo (no
+  // localStorage/sessionStorage). A production build should either
+  // keep it in memory for the life of an SPA session or use an
+  // httpOnly cookie set by the server — never localStorage, which is
+  // readable by any script on the page (XSS risk).
+  // ----------------------------------------------------------------
+  let sessionToken = null;
+
+  const loginForm = document.getElementById("loginForm");
+  const loginError = document.getElementById("loginError");
+  const loginSuccess = document.getElementById("loginSuccess");
+  const loginBtn = document.getElementById("loginBtn");
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    loginError.classList.remove("show");
+    loginSuccess.classList.remove("show");
+
+    const username = document.getElementById("username").value.trim();
+    const password = passwordInput.value;
+    const rememberMe = document.getElementById("rememberMe").checked;
+
+    loginBtn.disabled = true;
+    const originalText = loginBtn.textContent;
+    loginBtn.textContent = "...";
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, remember_me: rememberMe }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        loginError.textContent = data.detail || "Invalid username or password.";
+        loginError.classList.add("show");
+        return;
+      }
+
+      Session.saveSession(data);
+      sessionToken = data.access_token;
+      loginSuccess.textContent = `Welcome, ${data.full_name}! Redirecting to your ${data.role} dashboard...`;
+      loginSuccess.classList.add("show");
+
+      // Token relay note: this is a static multi-page demo, not a SPA, and we
+      // deliberately avoid localStorage/sessionStorage. The token is passed via
+      // URL once; the destination dashboard reads it immediately and scrubs it
+      // from the visible URL with history.replaceState. A production build
+      // should instead use an httpOnly session cookie set by the server, or
+      // keep the whole authenticated app as a single-page session in memory.
+      const dashboardByRole = {
+        super_admin: "../admin/dashboard.html",
+        admin: "../admin/dashboard.html",
+        teacher: "../teacher/dashboard.html",
+        student: "../student/dashboard.html",
+      };
+      const destination = dashboardByRole[data.role];
+      if (destination) {
+        const params = new URLSearchParams({
+          token: data.access_token,
+          refresh: data.refresh_token,
+          name: data.full_name,
+          role: data.role,
+        });
+        setTimeout(() => {
+          window.location.href = `${destination}?${params.toString()}`;
+        }, 700);
+      }
+    } catch (err) {
+      loginError.textContent = "Could not reach the server. Is the backend running?";
+      loginError.classList.add("show");
+    } finally {
+      loginBtn.disabled = false;
+      loginBtn.textContent = originalText;
+    }
+  });
+
+  // ----------------------------------------------------------------
+  // Forgot password submit — calls POST /api/auth/forgot-password
+  // ----------------------------------------------------------------
+  const forgotForm = document.getElementById("forgotForm");
+  const forgotSuccess = document.getElementById("forgotSuccess");
+
+  forgotForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("forgotEmail").value.trim();
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/forgot-password`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      forgotSuccess.textContent = data.message || "If an account with that email exists, a reset link has been sent.";
+      forgotSuccess.classList.add("show");
+      forgotForm.reset();
+    } catch (err) {
+      forgotSuccess.textContent = "Could not reach the server. Is the backend running?";
+      forgotSuccess.classList.add("show");
+    }
+  });
+</script>
+</body>
+
+</html>

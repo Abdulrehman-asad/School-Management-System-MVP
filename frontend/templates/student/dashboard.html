@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard — Shaheen Model Girls High School</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/css/main.css" rel="stylesheet">
+<link href="../../static/css/dashboard.css" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<svg style="display:none" aria-hidden="true">
+  <defs>
+    <g id="icon-falcon-mark" fill="currentColor" stroke="none"><path d="M24 7c-3.6 0-7.4 2.4-11.4 8.2C7.6 18.6 3 20.6 3 20.6c4.4-1 8.3-2.2 11-2.2 2 0 3.7.5 5 1.6l3-4.9 3 4.9c1.3-1.1 3-1.6 5-1.6 2.7 0 6.6 1.2 11 2.2 0 0-4.6-2-9.6-5.4C31.4 9.4 27.6 7 24 7Z"/></g>
+    <g id="icon-grid" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></g>
+    <g id="icon-attendance" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/><path d="m9 14.5 2 2 4-4"/></g>
+    <g id="icon-homework" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C6 4.3 9 4 12 5v14c-3-1-6-0.7-8 0.5v-14Z"/><path d="M20 5.5C18 4.3 15 4 12 5v14c3-1 6-0.7 8 0.5v-14Z"/></g>
+    <g id="icon-timetable" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></g>
+    <g id="icon-exams" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6Z"/><path d="M15 3v4h4"/><path d="M9 12h6M9 16h6M9 8h3"/></g>
+    <g id="icon-fees" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.1 1.7-2.5 2-2.5.6-2.5 2 1.1 2 2.5 2 2.5-.6 2.5-2"/></g>
+    <g id="icon-settings" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H4a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H10a1.7 1.7 0 0 0 1-1.5V4a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V10a1.7 1.7 0 0 0 1.5 1H20a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1Z"/></g>
+    <g id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></g>
+    <g id="icon-search" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g>
+    <g id="icon-bell" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z"/><path d="M10 19a2 2 0 0 0 4 0"/></g>
+    <g id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2.5 12h2M19.5 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></g>
+    <g id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></g>
+    <g id="icon-user" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-7 7.5-7s7.5 3 7.5 7"/></g>
+    <g id="icon-logout" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></g>
+    <g id="icon-camera-mini" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2.2h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="3.4"/></g>
+    <g id="icon-paperclip" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12.5 15 5.5a3 3 0 0 1 4.2 4.2L11 18a5 5 0 0 1-7-7l7.8-7.8"/></g>
+  </defs>
+</svg>
+
+<div class="sidebar-backdrop"></div>
+
+<aside class="dash-sidebar">
+  <a href="../public/index.html" class="brand text-decoration-none">
+    <svg viewBox="0 0 48 28"><use href="#icon-falcon-mark"/></svg>
+    <span class="brand-text">Shaheen Model<br><small>Student Panel</small></span>
+  </a>
+  <nav class="dash-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html" class="active"><svg viewBox="0 0 24 24"><use href="#icon-grid"/></svg>Dashboard</a>
+
+    <div class="nav-section-label">My Studies</div>
+    <a href="#timetableCard"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg>My Timetable</a>
+    <a href="#homeworkCard"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg>Homework</a>
+    <a href="#resultsCard"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg>Results &amp; GPA</a>
+    <a href="#feeCard"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg>Fee Status</a>
+
+    <div class="nav-section-label">System</div>
+    <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-settings"/></svg>Settings<span class="soon-badge">soon</span></a>
+  </nav>
+  <div class="sidebar-footer">Shaheen ERP v1.0 &middot; Part 8</div>
+</aside>
+
+<div class="dash-main">
+  <header class="dash-topbar">
+    <button class="sidebar-toggle-btn"><svg viewBox="0 0 24 24"><use href="#icon-menu"/></svg></button>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24"><use href="#icon-search"/></svg>
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" id="themeToggle"><svg viewBox="0 0 24 24"><use href="#icon-sun"/></svg></button>
+      <div style="position:relative;">
+        <button class="icon-btn" id="notifBell">
+          <svg viewBox="0 0 24 24"><use href="#icon-bell"/></svg>
+          <span class="badge-dot" id="notifBadge" style="display:none;"></span>
+        </button>
+        <div class="notif-panel" id="notifPanel">
+          <div class="notif-header"><strong>Notifications</strong><button id="notifMarkAll">Mark all read</button></div>
+          <div id="notifList"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="user-chip" id="userChip">
+          <div class="avatar">S</div>
+          <div class="meta"><div class="name">Student</div><div class="role">student</div></div>
+        </div>
+        <div class="user-dropdown" id="userDropdown">
+          <a href="#"><svg viewBox="0 0 24 24"><use href="#icon-user"/></svg>My Profile</a>
+          <button id="logoutBtn"><svg viewBox="0 0 24 24"><use href="#icon-logout"/></svg>Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dash-content">
+    <h1 class="page-title">My Dashboard</h1>
+    <p class="page-subtitle">Your attendance, homework, results, and fee status — all in one place.</p>
+
+    <!-- Profile card -->
+    <div class="dash-card mb-4">
+      <div class="d-flex flex-wrap gap-3 align-items-center">
+        <div style="position:relative; width:64px; height:64px; flex-shrink:0;">
+          <div class="teacher-avatar" id="profileAvatarWrap" style="width:64px;height:64px;font-size:1.3rem;background:linear-gradient(155deg, var(--gold), #8a6317); overflow:hidden;">
+            <span id="profileAvatar">--</span>
+            <img id="profilePhotoImg" style="display:none; width:100%; height:100%; object-fit:cover;" alt="Profile photo">
+          </div>
+          <button type="button" id="photoUploadTrigger" title="Change photo"
+                  style="position:absolute; bottom:-2px; right:-2px; width:24px; height:24px; border-radius:50%; background:var(--sky); border:2px solid var(--bg-surface); color:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg viewBox="0 0 24 24" width="12" height="12"><use href="#icon-camera-mini"/></svg>
+          </button>
+          <input type="file" id="photoFileInput" accept=".jpg,.jpeg,.png,.webp" style="display:none;">
+        </div>
+        <div class="flex-grow-1">
+          <div class="fw-semibold fs-5" id="profileName">Loading...</div>
+          <div class="text-muted small" id="profileMeta">—</div>
+          <div class="small mt-1" id="photoUploadStatus"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #e3f3ea; color: #1f6b46;"><svg viewBox="0 0 24 24"><use href="#icon-attendance"/></svg></div>
+          <div><div class="value" id="statAttendance">—</div><div class="label">Attendance</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--sky-tint); color: var(--sky);"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg></div>
+          <div><div class="value" id="statHomework">—</div><div class="label">Pending Homework</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: var(--gold-soft); color: #8a6317;"><svg viewBox="0 0 24 24"><use href="#icon-exams"/></svg></div>
+          <div><div class="value" id="statGpa">—</div><div class="label">Latest GPA</div></div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background: #fdecec; color: #9c2b2b;"><svg viewBox="0 0 24 24"><use href="#icon-fees"/></svg></div>
+          <div><div class="value" id="statFeeStatus">—</div><div class="label">Fee Status</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-lg-6" id="timetableCard">
+        <div class="dash-card">
+          <div class="card-title">My Timetable</div>
+          <div id="timetableList" style="max-height:320px; overflow-y:auto;"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6" id="homeworkCard">
+        <div class="dash-card">
+          <div class="card-title">Homework</div>
+          <div id="homeworkList" style="max-height:320px; overflow-y:auto;"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <div class="col-lg-7" id="resultsCard">
+        <div class="dash-card">
+          <div class="card-title">
+            Results &amp; GPA
+            <select class="form-select form-select-sm w-auto" id="examSelect"></select>
+          </div>
+          <div id="resultsBody"><div class="notif-empty">Select an exam to view your result card.</div></div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="dash-card">
+          <div class="card-title">Notices</div>
+          <div id="noticesList" style="max-height:280px; overflow-y:auto;"><div class="notif-empty">Loading...</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4" id="feeCard">
+      <div class="col-12">
+        <div class="dash-card">
+          <div class="card-title">Fee Status</div>
+          <div style="overflow-x:auto;">
+            <table class="dash-table">
+              <thead><tr><th>Challan No</th><th>Month</th><th>Amount</th><th>Due Date</th><th>Status</th></tr></thead>
+              <tbody id="feeBody"><tr><td colspan="5" class="text-center text-muted py-4">Loading...</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="toast-custom-dash" id="dashToast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../static/js/auth-session.js"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script>
+  const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000" : "";
+
+  const DAY_NAMES = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+  const TODAY_NAME = DAY_NAMES[new Date().getDay() - 1] || null;
+
+  let myStudentId = null;
+  let mySectionId = null;
+
+  if (Session.bootstrap({ requireRole: ["student"] })) {
+    DashboardShell.init({ apiBase: API_BASE });
+    bootstrapStudentPage();
+  }
+
+  function showToast(message, isError = false) {
+    const toast = document.getElementById("dashToast");
+    toast.textContent = message;
+    toast.classList.toggle("error", isError);
+    toast.classList.add("show");
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
+  }
+
+  async function safeJson(promise, fallback = []) {
+    try {
+      const res = await promise;
+      if (!res.ok) return fallback;
+      return await res.json();
+    } catch (e) { return fallback; }
+  }
+
+  async function bootstrapStudentPage() {
+    const me = await safeJson(Session.authFetch(`${API_BASE}/api/students/me`), null);
+    if (!me) { showToast("Could not load your profile.", true); return; }
+    myStudentId = me.student_id;
+    mySectionId = me.section_id;
+
+    renderProfile(me);
+
+    const [attendanceSummary, homework, timetable, notices, challans] = await Promise.all([
+      safeJson(Session.authFetch(`${API_BASE}/api/attendance/summary/${myStudentId}`), null),
+      safeJson(Session.authFetch(`${API_BASE}/api/homework?section_id=${mySectionId}`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/timetable/my-schedule`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/notices`)),
+      safeJson(Session.authFetch(`${API_BASE}/api/fees/challans`)),
+    ]);
+
+    renderAttendance(attendanceSummary);
+    renderHomework(homework);
+    renderTimetable(timetable);
+    renderNotices(notices);
+    renderFees(challans);
+    await loadExamsAndResults();
+  }
+
+  function renderProfile(me) {
+    document.getElementById("profileName").textContent = me.full_name;
+    document.getElementById("profileMeta").textContent = `Registration No: ${me.registration_no} · Status: ${me.status}`;
+    document.getElementById("profileAvatar").textContent = me.full_name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+
+    const img = document.getElementById("profilePhotoImg");
+    if (me.profile_image) {
+      img.src = `${API_BASE}/uploads/${me.profile_image}`;
+      img.style.display = "block";
+      document.getElementById("profileAvatar").style.display = "none";
+    }
+
+    DashboardShell.setupPhotoUpload({
+      apiBase: API_BASE,
+      triggerId: "photoUploadTrigger",
+      inputId: "photoFileInput",
+      imgId: "profilePhotoImg",
+      textAvatarId: "profileAvatar",
+      statusId: "photoUploadStatus",
+    });
+  }
+
+  function renderAttendance(summary) {
+    document.getElementById("statAttendance").textContent = summary ? `${summary.percentage}%` : "—";
+  }
+
+  function renderHomework(homework) {
+    const el = document.getElementById("homeworkList");
+    const today = new Date().toISOString().slice(0, 10);
+    const pending = homework.filter((h) => h.due_date >= today);
+    document.getElementById("statHomework").textContent = pending.length;
+
+    if (!homework.length) {
+      el.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24"><use href="#icon-homework"/></svg><div>No homework assigned yet.</div></div>';
+      return;
+    }
+    el.innerHTML = homework.slice(0, 8).map((h) => `
+      <div class="notice-item">
+        <div class="dot" style="background: ${h.due_date < today ? '#b23b3b' : 'var(--gold)'};"></div>
+        <div><div class="title">${DashboardShell.escapeHtml(h.title)} ${h.attachment_path ? `<a href="${API_BASE}/uploads/${h.attachment_path}" target="_blank" rel="noopener" title="Download attachment"><svg viewBox="0 0 24 24" width="12" height="12"><use href="#icon-paperclip"/></svg></a>` : ""}</div><div class="date">Due ${h.due_date}</div></div>
+      </div>
+    `).join("");
+  }
+
+  function renderTimetable(timetable) {
+    const el = document.getElementById("timetableList");
+    if (!timetable.length) {
+      el.innerHTML = '<div class="empty-state"><svg viewBox="0 0 24 24"><use href="#icon-timetable"/></svg><div>No timetable published yet.</div></div>';
+      return;
+    }
+    const byDay = {};
+    timetable.forEach((t) => { (byDay[t.day_of_week] = byDay[t.day_of_week] || []).push(t); });
+    el.innerHTML = DAY_NAMES.filter((d) => byDay[d]).map((day) => `
+      <div class="mb-2">
+        <div class="small fw-semibold text-uppercase text-muted mb-1">${day}${day === TODAY_NAME ? " &middot; today" : ""}</div>
+        ${byDay[day].map((t) => `
+          <div class="notice-item">
+            <div class="dot" style="background: var(--sky);"></div>
+            <div><div class="title">Subject #${t.subject_id}</div><div class="date">${t.start_time} &ndash; ${t.end_time}</div></div>
+          </div>
+        `).join("")}
+      </div>
+    `).join("");
+  }
+
+  function renderNotices(notices) {
+    const el = document.getElementById("noticesList");
+    if (!notices.length) {
+      el.innerHTML = '<div class="empty-state">No notices right now.</div>';
+      return;
+    }
+    el.innerHTML = notices.map((n) => `
+      <div class="notice-item">
+        <div class="dot"></div>
+        <div><div class="title">${DashboardShell.escapeHtml(n.title)}</div><div class="date">${n.publish_date}</div></div>
+      </div>
+    `).join("");
+  }
+
+  function renderFees(challans) {
+    const tbody = document.getElementById("feeBody");
+    if (!challans.length) {
+      tbody.innerHTML = '<tr><td colspan="5" class="text-center text-muted py-4">No fee challans yet.</td></tr>';
+      document.getElementById("statFeeStatus").textContent = "N/A";
+      return;
+    }
+    const hasUnpaid = challans.some((c) => c.status !== "paid");
+    document.getElementById("statFeeStatus").textContent = hasUnpaid ? "Due" : "Clear";
+
+    tbody.innerHTML = challans.map((c) => `
+      <tr>
+        <td>${c.challan_no}</td>
+        <td>${c.month_year || "—"}</td>
+        <td>Rs. ${Number(c.amount).toLocaleString()}</td>
+        <td>${c.due_date}</td>
+        <td><span class="status-pill ${c.status}">${c.status}</span></td>
+      </tr>
+    `).join("");
+  }
+
+  async function loadExamsAndResults() {
+    const exams = await safeJson(Session.authFetch(`${API_BASE}/api/exams`));
+    const select = document.getElementById("examSelect");
+
+    if (!exams.length) {
+      select.innerHTML = '<option>No exams yet</option>';
+      document.getElementById("resultsBody").innerHTML = '<div class="empty-state">No exams scheduled yet.</div>';
+      return;
+    }
+
+    select.innerHTML = exams.map((e) => `<option value="${e.exam_id}">${DashboardShell.escapeHtml(e.exam_name)}</option>`).join("");
+    select.addEventListener("change", () => loadResultCard(select.value));
+    await loadResultCard(exams[exams.length - 1].exam_id, true);
+    select.value = exams[exams.length - 1].exam_id;
+  }
+
+  async function loadResultCard(examId, isInitial = false) {
+    const el = document.getElementById("resultsBody");
+    el.innerHTML = '<div class="notif-empty">Loading result card...</div>';
+
+    try {
+      const res = await Session.authFetch(`${API_BASE}/api/results/report-card/${myStudentId}/${examId}`);
+      if (!res.ok) {
+        el.innerHTML = '<div class="empty-state">No results published for this exam yet.</div>';
+        if (isInitial) document.getElementById("statGpa").textContent = "—";
+        return;
+      }
+      const card = await res.json();
+      if (isInitial) document.getElementById("statGpa").textContent = card.gpa.toFixed(2);
+
+      el.innerHTML = `
+        <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
+          <div><span class="text-muted small">Overall</span><div class="fw-semibold">${card.overall_percentage}% &middot; Grade ${card.overall_grade}</div></div>
+          <div><span class="text-muted small">GPA</span><div class="fw-semibold">${card.gpa.toFixed(2)}</div></div>
+          <div><span class="text-muted small">Position</span><div class="fw-semibold">${card.position ?? "—"}</div></div>
+        </div>
+        <table class="dash-table">
+          <thead><tr><th>Subject</th><th>Marks</th><th>Grade</th><th>Status</th></tr></thead>
+          <tbody>
+            ${card.subjects.map((s) => `
+              <tr>
+                <td>${DashboardShell.escapeHtml(s.subject_name)}</td>
+                <td>${s.marks_obtained} / ${s.total_marks}</td>
+                <td>${s.grade}</td>
+                <td><span class="status-pill ${s.is_pass ? "active" : "unpaid"}">${s.is_pass ? "Pass" : "Fail"}</span></td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+    } catch (e) {
+      el.innerHTML = '<div class="empty-state">Could not load result card.</div>';
+    }
+  }
+</script>
+</body>
+</html>

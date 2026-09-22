@@ -1,0 +1,4 @@
+const express=require('express');const r=express.Router();const c=require('../controllers/exam.controller');const {getCurrentUser,requireRoles}=require('../middleware/auth');const admin=requireRoles('admin','super_admin');
+r.post('',getCurrentUser,admin,c.createExam);r.get('',getCurrentUser,c.listExams);r.get('/:exam_id',getCurrentUser,c.getExam);r.put('/:exam_id',getCurrentUser,admin,c.updateExam);r.delete('/:exam_id',getCurrentUser,admin,c.deleteExam);
+r.post('/:exam_id/schedule',getCurrentUser,admin,c.createSchedule);r.get('/:exam_id/schedule',getCurrentUser,c.listSchedules);r.get('/schedule/:schedule_id',getCurrentUser,c.getSchedule);r.put('/schedule/:schedule_id',getCurrentUser,admin,c.updateSchedule);r.delete('/schedule/:schedule_id',getCurrentUser,admin,c.deleteSchedule);
+module.exports=r;

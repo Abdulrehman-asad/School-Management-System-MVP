@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/notice.controller'),{getCurrentUser,requireRoles}=require('../middleware/auth'),admin=requireRoles('admin','super_admin');
+r.post('',getCurrentUser,admin,c.create);r.get('',getCurrentUser,c.list);r.get('/:notice_id',getCurrentUser,c.get);r.put('/:notice_id',getCurrentUser,admin,c.update);r.delete('/:notice_id',getCurrentUser,admin,c.del);module.exports=r;

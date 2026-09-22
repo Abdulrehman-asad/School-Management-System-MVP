@@ -1,0 +1,50 @@
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const authRoutes = require('./routes/auth.routes');
+const academicRoutes = require('./routes/academic.routes');
+const attendanceRoutes = require('./routes/attendance.routes');
+const studentRoutes = require('./routes/student.routes');
+const teacherRoutes = require('./routes/teacher.routes');
+const examRoutes = require('./routes/exam.routes');
+const resultRoutes = require('./routes/result.routes');
+const feeRoutes = require('./routes/fee.routes');
+const homeworkRoutes = require('./routes/homework.routes');
+const timetableRoutes = require('./routes/timetable.routes');
+const noticeRoutes = require('./routes/notice.routes');
+const notificationRoutes = require('./routes/notification.routes');
+const reportRoutes = require('./routes/report.routes');
+const uploadRoutes = require('./routes/upload.routes');
+const backupRoutes = require('./routes/backup.routes');
+const { env } = require('./config/environment');
+const { errorHandler } = require('./middleware/error');
+
+const app = express();
+app.disable('x-powered-by');
+app.use(cors({ origin: env.app.corsOrigins.length ? env.app.corsOrigins : true, credentials: true }));
+app.use(express.json({ limit: '2mb' }));
+app.use(express.urlencoded({ extended: true, limit: '2mb' }));
+app.use('/uploads', express.static(path.resolve(env.uploads.dir)));
+
+app.get('/', (req, res) => res.json({ message: env.app.name, backend: 'node-express' }));
+app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+app.use('/api/auth', authRoutes);
+app.use('/api/academic', academicRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/students', studentRoutes);
+app.use('/api/teachers', teacherRoutes);
+app.use('/api/exams', examRoutes);
+app.use('/api/results', resultRoutes);
+app.use('/api/fees', feeRoutes);
+app.use('/api/homework', homeworkRoutes);
+app.use('/api/timetable', timetableRoutes);
+app.use('/api/notices', noticeRoutes);
+app.use('/api/notifications', notificationRoutes);
+app.use('/api/reports', reportRoutes);
+app.use('/api/uploads', uploadRoutes);
+app.use('/api/backup', backupRoutes);
+
+app.use((req, res) => res.status(404).json({ detail: 'Not Found' }));
+app.use(errorHandler);
+
+module.exports = app;
