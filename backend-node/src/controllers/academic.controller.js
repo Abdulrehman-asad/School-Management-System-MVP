@@ -21,4 +21,91 @@ async function listSubjects(req,res,next){try{res.json(await service.listSubject
 async function getSubject(req,res,next){try{const row=await service.getSubject(req.params.subject_id);if(!row)throw notFound('Subject not found');res.json(row);}catch(e){next(e);}}
 async function updateSubject(req,res,next){try{if(!await service.getSubject(req.params.subject_id))throw notFound('Subject not found');const out=await service.updateSubject(req.params.subject_id,v.validateSubjectUpdate(req.body));if(out==='SUBJECT_CODE_DUPLICATE')throw conflict('Subject code already exists');res.json(out);}catch(e){next(e);}}
 async function deleteSubject(req,res,next){try{if(!await service.deleteSubject(req.params.subject_id))throw notFound('Subject not found');res.status(204).send();}catch(e){next(e);}}
-module.exports={createClass,listClasses,getClass,updateClass,deleteClass,createSection,listSections,getSection,updateSection,deleteSection,createSubject,listSubjects,getSubject,updateSubject,deleteSubject};
+async function createAcademicSession(req, res, next) {
+  try {
+    const data = v.validateAcademicSessionCreate(req.body);
+
+    const out = await service.createAcademicSession(data);
+
+    if (out === 'SESSION_DUPLICATE') {
+      throw conflict('Academic session already exists');
+    }
+
+    res.status(201).json(out);
+  } catch (e) {
+    next(e);
+  }
+}
+
+async function listAcademicSessions(req, res, next) {
+  try {
+    res.json(await service.listAcademicSessions());
+  } catch (e) {
+    next(e);
+  }
+}
+
+async function getAcademicSession(req, res, next) {
+  try {
+    const row = await service.getAcademicSession(
+      req.params.session_id
+    );
+
+    if (!row) {
+      throw notFound('Academic session not found');
+    }
+
+    res.json(row);
+  } catch (e) {
+    next(e);
+  }
+}
+
+async function updateAcademicSession(req, res, next) {
+  try {
+    const sessionId = req.params.session_id;
+
+    if (!await service.getAcademicSession(sessionId)) {
+      throw notFound('Academic session not found');
+    }
+
+    const data = v.validateAcademicSessionUpdate(req.body);
+
+    const out = await service.updateAcademicSession(
+      sessionId,
+      data
+    );
+
+    if (out === 'SESSION_DUPLICATE') {
+      throw conflict('Academic session already exists');
+    }
+
+    res.json(out);
+  } catch (e) {
+    next(e);
+  }
+}
+module.exports = {
+  createClass,
+  listClasses,
+  getClass,
+  updateClass,
+  deleteClass,
+
+  createSection,
+  listSections,
+  getSection,
+  updateSection,
+  deleteSection,
+
+  createSubject,
+  listSubjects,
+  getSubject,
+  updateSubject,
+  deleteSubject,
+
+  createAcademicSession,
+  listAcademicSessions,
+  getAcademicSession,
+  updateAcademicSession
+};

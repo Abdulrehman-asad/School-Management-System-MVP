@@ -21,5 +21,30 @@ router.get('/subjects', getCurrentUser, c.listSubjects);
 router.get('/subjects/:subject_id', getCurrentUser, c.getSubject);
 router.put('/subjects/:subject_id', getCurrentUser, adminOnly, c.updateSubject);
 router.delete('/subjects/:subject_id', getCurrentUser, adminOnly, c.deleteSubject);
+router.post(
+  '/sessions',
+  getCurrentUser,
+  adminOnly,
+  c.createAcademicSession
+);
+
+router.get(
+  '/sessions',
+  getCurrentUser,
+  c.listAcademicSessions
+);
+
+router.get(
+  '/sessions/:session_id',
+  getCurrentUser,
+  c.getAcademicSession
+);
+
+router.put(
+  '/sessions/:session_id',
+  getCurrentUser,
+  adminOnly,
+  c.updateAcademicSession
+);
 
 module.exports = router;

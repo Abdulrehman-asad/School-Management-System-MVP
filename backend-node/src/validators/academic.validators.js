@@ -48,4 +48,84 @@ function validateSubjectUpdate(body) {
   if (body.is_optional !== undefined) { if (typeof body.is_optional !== 'boolean') fail('is_optional is invalid'); out.is_optional = body.is_optional; }
   return out;
 }
-module.exports = { validateClassCreate, validateClassUpdate, validateSectionCreate, validateSectionUpdate, validateSubjectCreate, validateSubjectUpdate };
+function validateAcademicSessionCreate(body) {
+  if (!isObject(body)) fail('Invalid request body');
+
+  requiredString(
+    body.session_name,
+    50,
+    'session_name'
+  );
+
+  if (
+    body.start_date !== undefined &&
+    body.start_date !== null
+  ) {
+    optionalString(body.start_date, 10, 'start_date');
+  }
+
+  if (
+    body.end_date !== undefined &&
+    body.end_date !== null
+  ) {
+    optionalString(body.end_date, 10, 'end_date');
+  }
+
+  if (
+    body.is_active !== undefined &&
+    typeof body.is_active !== 'boolean'
+  ) {
+    fail('is_active is invalid');
+  }
+
+  return {
+    session_name: body.session_name,
+    start_date: body.start_date ?? null,
+    end_date: body.end_date ?? null,
+    is_active: body.is_active ?? true
+  };
+}
+
+function validateAcademicSessionUpdate(body) {
+  if (!isObject(body)) fail('Invalid request body');
+
+  const out = {};
+
+  if (body.session_name !== undefined) {
+    requiredString(
+      body.session_name,
+      50,
+      'session_name'
+    );
+    out.session_name = body.session_name;
+  }
+
+  if (body.start_date !== undefined) {
+    optionalString(
+      body.start_date,
+      10,
+      'start_date'
+    );
+    out.start_date = body.start_date;
+  }
+
+  if (body.end_date !== undefined) {
+    optionalString(
+      body.end_date,
+      10,
+      'end_date'
+    );
+    out.end_date = body.end_date;
+  }
+
+  if (body.is_active !== undefined) {
+    if (typeof body.is_active !== 'boolean') {
+      fail('is_active is invalid');
+    }
+
+    out.is_active = body.is_active;
+  }
+
+  return out;
+}
+module.exports = { validateClassCreate, validateClassUpdate, validateSectionCreate, validateSectionUpdate, validateSubjectCreate, validateSubjectUpdate, validateAcademicSessionCreate, validateAcademicSessionUpdate };

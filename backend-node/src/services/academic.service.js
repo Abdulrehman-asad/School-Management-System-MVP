@@ -154,8 +154,126 @@ async function deleteSubject(subjectId) {
   return result.affectedRows > 0;
 }
 
+async function createAcademicSession(data) {
+  try {
+    const [result] = await pool.execute(
+      `
+      INSERT INTO academic_sessions
+      (session_name, start_date, end_date, is_active)
+      VALUES (?, ?, ?, ?)
+      `,
+      [
+        data.session_name,
+        data.start_date ?? null,
+        data.end_date ?? null,
+        data.is_active ?? 1
+      ]
+    );
+
+    return getAcademicSession(result.insertId);
+  } catch (err) {
+    return dbErrorMessage(err, 'SESSION_DUPLICATE');
+  }
+}
+
+async function listAcademicSessions() {
+  const [rows] = await pool.execute(
+    `
+    SELECT
+      session_id,
+      session_name,
+      start_date,
+      end_date,
+      is_active,
+      created_at
+    FROM academic_sessions
+    ORDER BY start_date DESC, session_name DESC
+    `
+  );
+
+  return rows;
+}
+
+async function getAcademicSession(sessionId) {
+  const [rows] = await pool.execute(
+    `
+    SELECT
+      session_id,
+      session_name,
+      start_date,
+      end_date,
+      is_active,
+      created_at
+    FROM academic_sessions
+    WHERE session_id = ?
+    `,
+    [sessionId]
+  );
+
+  return rows[0] || null;
+}
+
+async function updateAcademicSession(sessionId, data) {
+  const fields = [];
+  const values = [];
+
+  if (Object.prototype.hasOwnProperty.call(data, 'session_name')) {
+    fields.push('session_name = ?');
+    values.push(data.session_name);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(data, 'start_date')) {
+    fields.push('start_date = ?');
+    values.push(data.start_date ?? null);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(data, 'end_date')) {
+    fields.push('end_date = ?');
+    values.push(data.end_date ?? null);
+  }
+
+  if (Object.prototype.hasOwnProperty.call(data, 'is_active')) {
+    fields.push('is_active = ?');
+    values.push(data.is_active ? 1 : 0);
+  }
+
+  if (fields.length) {
+    values.push(sessionId);
+
+    try {
+      await pool.execute(
+        `UPDATE academic_sessions SET ${fields.join(', ')} WHERE session_id = ?`,
+        values
+      );
+    } catch (err) {
+      return dbErrorMessage(err, 'SESSION_DUPLICATE');
+    }
+  }
+
+  return getAcademicSession(sessionId);
+}
+
 module.exports = {
-  createClass, listClasses, getClass, updateClass, deleteClass,
-  createSection, listSections, getSection, updateSection, deleteSection,
-  createSubject, listSubjects, getSubject, updateSubject, deleteSubject
+  createClass,
+  listClasses,
+  getClass,
+  updateClass,
+  deleteClass,
+
+  createSection,
+  listSections,
+  getSection,
+  updateSection,
+  deleteSection,
+
+  createSubject,
+  listSubjects,
+  getSubject,
+  updateSubject,
+  deleteSubject,
+
+  createAcademicSession,
+  listAcademicSessions,
+  getAcademicSession,
+  updateAcademicSession
 };
