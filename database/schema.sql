@@ -70,6 +70,26 @@ CREATE TABLE sections (
     FOREIGN KEY (class_id) REFERENCES classes(class_id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+CREATE TABLE academic_sessions (
+    session_id INT AUTO_INCREMENT PRIMARY KEY,
+    session_name VARCHAR(50) NOT NULL,
+    start_date DATE DEFAULT NULL,
+    end_date DATE DEFAULT NULL,
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_session_name (session_name)
+) ENGINE=InnoDB;
+
+CREATE TABLE academic_sessions (
+    session_id INT AUTO_INCREMENT PRIMARY KEY,
+    session_name VARCHAR(50) NOT NULL,
+    start_date DATE DEFAULT NULL,
+    end_date DATE DEFAULT NULL,
+    is_active TINYINT(1) NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY uq_academic_session_name (session_name)
+) ENGINE=InnoDB;
+
 CREATE TABLE subjects (
     subject_id   INT AUTO_INCREMENT PRIMARY KEY,
     subject_name VARCHAR(100) NOT NULL,
