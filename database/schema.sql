@@ -80,15 +80,7 @@ CREATE TABLE academic_sessions (
     UNIQUE KEY uq_session_name (session_name)
 ) ENGINE=InnoDB;
 
-CREATE TABLE academic_sessions (
-    session_id INT AUTO_INCREMENT PRIMARY KEY,
-    session_name VARCHAR(50) NOT NULL,
-    start_date DATE DEFAULT NULL,
-    end_date DATE DEFAULT NULL,
-    is_active TINYINT(1) NOT NULL DEFAULT 1,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE KEY uq_academic_session_name (session_name)
-) ENGINE=InnoDB;
+
 
 CREATE TABLE subjects (
     subject_id   INT AUTO_INCREMENT PRIMARY KEY,
@@ -155,7 +147,7 @@ CREATE TABLE students (
     student_id      BIGINT AUTO_INCREMENT PRIMARY KEY,
     user_id         BIGINT NOT NULL UNIQUE,
     registration_no VARCHAR(30) UNIQUE NOT NULL,
-    section_id      INT NOT NULL,
+    section_id      INT DEFAULT NULL,
     parent_id       BIGINT DEFAULT NULL,
     date_of_birth   DATE,
     gender          ENUM('female','male','other') DEFAULT 'female',
