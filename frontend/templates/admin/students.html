@@ -167,9 +167,14 @@
               <input type="password" class="form-control" id="password" minlength="8">
             </div>
             <div class="col-md-6">
-              <label class="form-label small fw-semibold">Section</label>
-              <select class="form-select" id="sectionSelect" required></select>
-            </div>
+  <label class="form-label small fw-semibold">Session</label>
+  <select class="form-select" id="sessionSelect" required></select>
+</div>
+
+<div class="col-md-6">
+  <label class="form-label small fw-semibold">Section</label>
+  <select class="form-select" id="sectionSelect" required></select>
+</div>
             <div class="col-md-6">
               <label class="form-label small fw-semibold">Gender</label>
               <select class="form-select" id="genderSelect">
@@ -245,9 +250,10 @@
   }
 
   async function bootstrapPage() {
-    await loadSections();
-    await loadStudents();
-  }
+  await loadSessions();
+  await loadSections();
+  await loadStudents();
+}
 
   function showToast(message, isError = false) {
     const toast = document.getElementById("dashToast");
@@ -257,7 +263,26 @@
     clearTimeout(showToast._t);
     showToast._t = setTimeout(() => toast.classList.remove("show"), 3500);
   }
+ async function loadSessions() {
+  const sessionSelect = document.getElementById("sessionSelect");
 
+  try {
+    const res = await Session.authFetch(
+      `${API_BASE}/api/academic/sessions`
+    );
+
+    const sessions = res.ok ? await res.json() : [];
+
+    sessionSelect.innerHTML = sessions.map((s) =>
+      `<option value="${s.session_id}">${s.session_name}</option>`
+    ).join("") || '<option value="">No sessions available</option>';
+
+  } catch (e) {
+    console.error("Failed to load sessions:", e);
+    sessionSelect.innerHTML =
+      '<option value="">Could not load sessions</option>';
+  }
+}
   async function loadSections() {
     try {
       const res = await Session.authFetch(`${API_BASE}/api/academic/sections`);
@@ -358,6 +383,7 @@
     document.getElementById("username").value = student.username;
     document.getElementById("username").disabled = true;
     document.getElementById("email").value = student.email || "";
+    document.getElementById("sessionSelect").value = student.session_id;
     document.getElementById("sectionSelect").value = student.section_id;
     document.getElementById("genderSelect").value = student.gender;
     document.getElementById("dob").value = student.date_of_birth || "";
@@ -402,10 +428,11 @@
     try {
       if (isEdit) {
         const payload = {
-          full_name: document.getElementById("fullName").value,
-          section_id: parseInt(document.getElementById("sectionSelect").value, 10),
-          status: document.getElementById("statusSelect").value,
-        };
+  full_name: document.getElementById("fullName").value,
+  session_id: parseInt(document.getElementById("sessionSelect").value, 10),
+  section_id: parseInt(document.getElementById("sectionSelect").value, 10),
+  status: document.getElementById("statusSelect").value,
+};
         const res = await Session.authFetch(`${API_BASE}/api/students/${studentId}`, {
           method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
         });
@@ -417,6 +444,7 @@
           username: document.getElementById("username").value,
           email: document.getElementById("email").value || null,
           password: document.getElementById("password").value,
+          session_id: parseInt(document.getElementById("sessionSelect").value, 10),
           section_id: parseInt(document.getElementById("sectionSelect").value, 10),
           gender: document.getElementById("genderSelect").value,
           date_of_birth: document.getElementById("dob").value || null,
