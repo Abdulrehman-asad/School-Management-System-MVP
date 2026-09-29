@@ -1,7 +1,7 @@
 const { pool }=require('../config/database');
 const { calculateGrade }=require('../utils/grading');
 
-async function enterBulkResults(payload, enteredByTeacherId){
+async function enterBulkResults(payload, enteredByUserId){
   const conn=await pool.getConnection();
   try{
     await conn.beginTransaction();
@@ -12,8 +12,8 @@ async function enterBulkResults(payload, enteredByTeacherId){
       if(Number(entry.marks_obtained)>total){const e=new Error(`Marks for student ${entry.student_id} exceed total_marks (${total})`);e.status=400;throw e;}
       const {grade}=calculateGrade(entry.marks_obtained,total);
       const [existing]=await conn.execute('SELECT result_id FROM results WHERE student_id=? AND schedule_id=?',[entry.student_id,payload.schedule_id]);
-      if(existing.length){await conn.execute('UPDATE results SET marks_obtained=?,grade=?,remarks=?,entered_by=? WHERE result_id=?',[entry.marks_obtained,grade,entry.remarks??null,enteredByTeacherId??null,existing[0].result_id]);out.push(existing[0].result_id);}
-      else {const [r]=await conn.execute('INSERT INTO results (student_id,schedule_id,marks_obtained,grade,remarks,entered_by) VALUES (?,?,?,?,?,?)',[entry.student_id,payload.schedule_id,entry.marks_obtained,grade,entry.remarks??null,enteredByTeacherId??null]);out.push(r.insertId);}
+      if(existing.length){await conn.execute('UPDATE results SET marks_obtained=?,grade=?,remarks=?,entered_by=? WHERE result_id=?',[entry.marks_obtained,grade,entry.remarks??null,enteredByUserId ?? null,existing[0].result_id]);out.push(existing[0].result_id);}
+      else {const [r]=await conn.execute('INSERT INTO results (student_id,schedule_id,marks_obtained,grade,remarks,entered_by) VALUES (?,?,?,?,?,?)',[entry.student_id,payload.schedule_id,entry.marks_obtained,grade,entry.remarks??null,enteredByUserId ?? null]);out.push(r.insertId);}
     }
     await conn.commit();
     const [rows]=await pool.query(`SELECT result_id,student_id,schedule_id,marks_obtained,grade,remarks,entered_by FROM results WHERE result_id IN (${out.map(()=>'?').join(',')})`,out);

@@ -1,6 +1,19 @@
 const service=require('../services/result.service');const v=require('../validators/result.validators');
 const nf=m=>Object.assign(new Error(m),{status:404});
-async function enterResults(req,res,next){try{let enteredBy=null;if(req.user.role_name==='teacher'){const [rows]=await require('../config/database').pool.execute('SELECT teacher_id FROM teachers WHERE user_id=?',[req.user.user_id]);if(!rows.length)throw nf('Teacher not found');enteredBy=rows[0].teacher_id;}res.status(201).json(await service.enterBulkResults(v.bulk(req.body),enteredBy));}catch(e){next(e)}}
+async function enterResults(req, res, next) {
+  try {
+    const enteredBy = req.user.user_id;
+
+    res.status(201).json(
+      await service.enterBulkResults(
+        v.bulk(req.body),
+        enteredBy
+      )
+    );
+  } catch (e) {
+    next(e);
+  }
+}
 async function listResults(req,res,next){try{let studentId=req.query.student_id;if(req.user.role_name==='student'){const s=await service.getStudentByUserId(req.user.user_id); if(!s){const e=new Error('Student not found');e.status=404;throw e;}studentId=s.student_id;}if(!['admin','super_admin','teacher','student'].includes(req.user.role_name)){const e=new Error('Not authorized');e.status=403;throw e;}res.json(await service.listResults({scheduleId:req.query.schedule_id,studentId,skip:req.query.skip??0,limit:req.query.limit??200}));}catch(e){next(e)}}
 async function updateResult(req,res,next){try{const r=await service.updateResult(req.params.result_id,v.update(req.body));if(!r)throw nf('Result not found');res.json(r);}catch(e){next(e)}}
 async function deleteResult(req,res,next){try{if(!await service.deleteResult(req.params.result_id))throw nf('Result not found');res.status(204).send();}catch(e){next(e)}}
